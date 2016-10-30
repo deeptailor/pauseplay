@@ -16,11 +16,12 @@ sufficient CSS styling:
 
 - [ ] Hosting on Heroku
 - [ ] New account creation, login, and guest/demo login
-- [ ] Songs
-- [ ] Playlist Sharing
-- [ ] Continuous Play while navigating
-- [ ] Following/Friending
-- [ ] Production README [sample](docs/production_readme.md)
+- [ ] Audio track selection
+- [ ] Playlist creation, deletion and updating
+- [ ] Continuous audio streaming while navigating
+- [ ] Following Playlists
+- [ ] Following other users
+- [ ] Production README
 
 ## Design Docs
 * [View Wireframes][wireframes]
@@ -37,31 +38,92 @@ sufficient CSS styling:
 
 ## Implementation Timeline
 
-### Phase 1: Backend setup and Front End User Authentication (2 days)
+### Phase 1: Backend setup and Front End User Authentication (1 days)
 
 **Objective:** Functioning rails project with front-end Authentication
 
-### Phase 2: Song Model, API, and components (2 days)
+- [x] New Rails project
+- [ ] `User` model/migration
+- [ ] Back end authentication (session/password)
+- [x] `StaticPages` controller and root view
+- [ ] Webpack & react/redux modules
+- [ ] `APIUtil` to interact with the API
+- [ ] Redux cycle for frontend authentication
+- [ ] Sidebar component (signed out content only)
+- [ ] User signup/signin components
+- [ ] UserDetail component for currentUser on account tab
+- [ ] Style signup/signin components
+- [ ] Seed users
+- [ ] Review phase 1
 
-**Objective:** Songs can be played, shared and saved into playlists through the
-the API.
+### Phase 2: Tracks Model, API, and components (2 days)
 
-### Phase 3: Playlists (2 days)
+**Objective:** Tracks selected, and viewed on the index page.
 
-**Objective:** Songs can be added to playlists and playlists can be shared
+- [ ] `Track` model
+- [ ] Audio file hosting (AWS?)
+- [ ] Image file hosting (AWS?)
+- [ ] Seed database with a small amount of test data
+- [ ] JBuilder views for tracks
+- Track components and respective Redux loops
+  - [ ] `Sidebar`
+  - [ ] `TracksIndex`
+  - [ ] `TrackIndexItem`
+- [ ] Style tracks components
+- [ ] Seed tracks
 
-### Phase 4: Friending (1 day)
+### Phase 3: Playlists and playlist follows (2 days)
 
-**Objective:** Users can follow, friend other users to share songs to.
+**Objective:** Playlists can be created, destroyed, followed, and unfollowed. Tracks can be added to and removed from playlists.
 
-### Phase 5: Continous play while navigating(1 day)
+- [ ] `Playlist` model
+- [ ] Seed database with a small amount of test data
+- [ ] CRUD API for playlists (`PlaylistsController`)
+- [ ] JBuilder views for playlists
+- [ ] Fetching playlists for the current user
+- [ ] Adding and removing tracks from playlists
+- Playlist components and respective Redux loops
+  - [ ] `PlaylistIndex`
+  - [ ] `PlaylistIndexItem`
+  - [ ] `PlaylistTracksIndex`
+  - [ ] `PlaylistTracksIndexItem`
+  - [ ] `PlaylistForm `
+  - [ ] `PlaylistDetail `
+  - [ ] `AddTrackToPlaylist form `
+- [ ] Style playlist components
+- [ ] Seed playlists
+- [ ] `PlaylistFollow` model
+- [ ] Seed database with a small amount of test data
+- [ ] Create destroy API for playlists (`PlaylistsController`)
+- [ ] Add buttons for following / unfollowing playlists
 
-**objective:** Allow continuous play while navigating website
+### Phase 4: Streaming audio (2 days)
 
-### Phase 6: - Homepage (1 day)
+**Objective:** Audio can be streamed Continuously while navigating the site
+- [ ] Research streaming Audio
+- [ ] Current track Redux cycles and reducer
+- [ ] Current track components
+  - [ ] `PlayBar`
+  - [ ] `CurrentTrackDisplay`
+  - [ ] `CurrentTrackControlsContainer`
+  - [ ] `CurrentTrackProgressBar`
+- [ ] Styling for audio components
 
-**objective:** Have a homepage where users can explore new songs.
+### Phase 5: Follow Users / updating current user (1 day)
+
+**Objective:** Users can browse and follow other users.
+
+- [ ]`UserFollow` model
+- [ ] Create destroy API for follows (`UsersController`)
+- Related components
+  - [ ] `UserIndex`
+  - [ ] `UserDetail`
+  - [ ] `UserForm`
+- Styling for components
+
 
 ### Bonus Features (TBD)
-- [ ] Radio (Shuffle Play)
-- [ ] Explore Page
+- [ ] Splash screen
+- [ ] Search for songs and playlists on search tab
+- [ ] Track categorization
+- [ ] Play Queue
