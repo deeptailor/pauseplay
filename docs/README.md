@@ -58,8 +58,9 @@ sufficient CSS styling:
 
 ### Phase 2: Songs Model, API, and components (2 days)
 
-**Objective:** Songs selected, and viewed on the index page.
+**Objective:** Homepage, Songs selected, and viewed on the index page.
 
+- [ ] Homepage
 - [ ] `Song` model
 - [ ] Audio file hosting (AWS?)
 - [ ] Image file hosting (AWS?)
@@ -123,7 +124,6 @@ sufficient CSS styling:
 
 
 ### Bonus Features (TBD)
-- [ ] Splash screen
 - [ ] Search for songs and playlists on search tab
 - [ ] Song categorization
 - [ ] Play Queue
