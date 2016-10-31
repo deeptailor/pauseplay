@@ -114,7 +114,7 @@ sufficient CSS styling:
 
 **Objective:** Users can browse and follow other users.
 
-- [ ]`UserFollow` model
+- [ ] `UserFollow` model
 - [ ] Create destroy API for follows (`UsersController`)
 - Related components
   - [ ] `UserIndex`
