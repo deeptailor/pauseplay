@@ -16,7 +16,7 @@ sufficient CSS styling:
 
 - [ ] Hosting on Heroku
 - [ ] New account creation, login, and guest/demo login
-- [ ] Audio track selection
+- [ ] Audio song selection
 - [ ] Playlist creation, deletion and updating
 - [ ] Continuous audio streaming while navigating
 - [ ] Following Playlists
@@ -56,40 +56,40 @@ sufficient CSS styling:
 - [ ] Seed users
 - [ ] Review phase 1
 
-### Phase 2: Tracks Model, API, and components (2 days)
+### Phase 2: Songs Model, API, and components (2 days)
 
-**Objective:** Tracks selected, and viewed on the index page.
+**Objective:** Songs selected, and viewed on the index page.
 
-- [ ] `Track` model
+- [ ] `Song` model
 - [ ] Audio file hosting (AWS?)
 - [ ] Image file hosting (AWS?)
 - [ ] Seed database with a small amount of test data
-- [ ] JBuilder views for tracks
-- Track components and respective Redux loops
+- [ ] JBuilder views for songs
+- Song components and respective Redux loops
   - [ ] `Sidebar`
-  - [ ] `TracksIndex`
-  - [ ] `TrackIndexItem`
-- [ ] Style tracks components
-- [ ] Seed tracks
+  - [ ] `SongsIndex`
+  - [ ] `SongIndexItem`
+- [ ] Style songs components
+- [ ] Seed songs
 
 ### Phase 3: Playlists and playlist follows (2 days)
 
-**Objective:** Playlists can be created, destroyed, followed, and unfollowed. Tracks can be added to and removed from playlists.
+**Objective:** Playlists can be created, destroyed, followed, and unfollowed. Songs can be added to and removed from playlists.
 
 - [ ] `Playlist` model
 - [ ] Seed database with a small amount of test data
 - [ ] CRUD API for playlists (`PlaylistsController`)
 - [ ] JBuilder views for playlists
 - [ ] Fetching playlists for the current user
-- [ ] Adding and removing tracks from playlists
+- [ ] Adding and removing songs from playlists
 - Playlist components and respective Redux loops
   - [ ] `PlaylistIndex`
   - [ ] `PlaylistIndexItem`
-  - [ ] `PlaylistTracksIndex`
-  - [ ] `PlaylistTracksIndexItem`
+  - [ ] `PlaylistSongsIndex`
+  - [ ] `PlaylistSongsIndexItem`
   - [ ] `PlaylistForm `
   - [ ] `PlaylistDetail `
-  - [ ] `AddTrackToPlaylist form `
+  - [ ] `AddSongToPlaylist form `
 - [ ] Style playlist components
 - [ ] Seed playlists
 - [ ] `PlaylistFollow` model
@@ -101,12 +101,12 @@ sufficient CSS styling:
 
 **Objective:** Audio can be streamed Continuously while navigating the site
 - [ ] Research streaming Audio
-- [ ] Current track Redux cycles and reducer
-- [ ] Current track components
+- [ ] Current song Redux cycles and reducer
+- [ ] Current song components
   - [ ] `PlayBar`
-  - [ ] `CurrentTrackDisplay`
-  - [ ] `CurrentTrackControlsContainer`
-  - [ ] `CurrentTrackProgressBar`
+  - [ ] `CurrentSongDisplay`
+  - [ ] `CurrentSongControlsContainer`
+  - [ ] `CurrentSongProgressBar`
 - [ ] Styling for audio components
 
 ### Phase 5: Follow Users / updating current user (1 day)
@@ -125,5 +125,5 @@ sufficient CSS styling:
 ### Bonus Features (TBD)
 - [ ] Splash screen
 - [ ] Search for songs and playlists on search tab
-- [ ] Track categorization
+- [ ] Song categorization
 - [ ] Play Queue
