@@ -12,7 +12,6 @@ const SessionMiddleware = (state) => (next) => (action) => {
   const successCb = (user) => store.dispatch(receiveCurrentUser(user));
   const errorCb = (errors) => store.dispatch(receiveErrors(errors.responseJSON));
 
-
   switch (action.type){
 
     case SIGNUP:
@@ -24,8 +23,8 @@ const SessionMiddleware = (state) => (next) => (action) => {
       return next(action);
 
     case LOGOUT:
-      logout(() => next(action));
-      break
+      logout(()=> next(action));
+      break;
 
     default:
       return next(action);
