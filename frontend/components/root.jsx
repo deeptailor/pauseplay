@@ -4,12 +4,14 @@ import React from 'react';
 
 import App from './app'
 import LoginFormContainer from './session_forms/login_form_container';
+import SignupFormContainer from './session_forms/signup_form_container';
 
 const Root = ({ store }) => (
   <Provider store={store}>
     <Router history={hashHistory}>
       <Route path="/" component={App}>
         <Route path="/login" component={LoginFormContainer}></Route>
+        <Route path="/signup" component={SignupFormContainer}></Route>
       </Route>
     </Router>
   </Provider>
