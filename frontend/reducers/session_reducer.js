@@ -22,9 +22,12 @@ const SessionReducer = (state = _nullUser, action) => {
       newState.currentUser = null;
       newState.errors = action.errors;
       return newState;
+      
+    case LOGOUT:
+      return _nullUser;
 
     default:
-      return _nullUser;
+      return state;
   }
 };
 

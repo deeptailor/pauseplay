@@ -6,15 +6,25 @@ import App from './app'
 import LoginFormContainer from './session_forms/login_form_container';
 import SignupFormContainer from './session_forms/signup_form_container';
 import Splash from './splash/splash';
+import UserAccount from './user_account/user_account';
+
+
+const _redirectIfLoggedIn = (nextState, replace) => {
+  const currentUser = store.getState().session.currentUser;
+  if (currentUser) {
+    replace('/');
+  }
+}
 
 const Root = ({ store }) => (
   <Provider store={store}>
     <Router history={hashHistory}>
       <Route path="/" component={App}>
         <IndexRoute component={Splash}/>
-        <Route path="/login" component={LoginFormContainer}></Route>
-        <Route path="/signup" component={SignupFormContainer}></Route>
+        <Route path="login" component={LoginFormContainer} onEnter={_redirectIfLoggedIn}></Route>
+        <Route path="signup" component={SignupFormContainer} onEnter={_redirectIfLoggedIn}></Route>
       </Route>
+      <Route path="/users/:user_id" component={UserAccount}></Route>
     </Router>
   </Provider>
 );

@@ -56,6 +56,9 @@
 a:link{
   text-decoration: none;
 }
+a:-webkit-any-link{
+  color: white;
+}
 
 .login-signup{
   font-family: 'Montserrat', sans-serif;
@@ -99,7 +102,7 @@ a:link{
   background-image: url("https://res.cloudinary.com/deeptailor/image/upload/e_contrast:0,q_auto:good,r_0/v1478066750/collage-pic_noscrb.png");
   background-position: center;
   background-size: contain;
-  height: 650px;
+  height: 90vh;
   width: 100%;
 }
 
@@ -176,4 +179,45 @@ a:link{
 
 .errors{
   color: red;
+}
+
+/*User_account*/
+
+.user_account_container{
+  display: flex;
+  flex-direction: row;
+}
+
+.user_account_sidebar{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 26px;
+  text-decoration: none;
+  min-height: 100vh;
+  width: 20%;
+  background-color: black;
+  opacity: 0.8;
+  color: white;
+}
+
+.user_account_sidebar > a:link{
+  margin: -160px 0 160px 0;
+}
+
+.user_account_sidebar > ul > li {
+
+  padding: 50px 30px 15px 30px;
+  border-bottom: 2px solid white;
+  text-align: center;
+  list-style: none;
+  font-size: 16px;
+}
+
+.user_account_sidebar > ul > li:hover{
+  color: black;
+  cursor: pointer;
+  color: #70ffd7;
 }
