@@ -13,3 +13,167 @@
  *= require_tree .
  *= require_self
  */
+
+ .app-container{
+   width: 80%;
+   margin: 0 auto;
+   overflow: visible;
+ }
+
+ .nav-container{
+   position: fixed;
+   background: black;
+   width: 100%;
+   opacity: 0.7;
+   z-index: 100;
+   left: 0;
+ }
+
+.nav-bar-top{
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.nav-bar-top > div{
+  margin: auto 0;
+}
+
+.logo-header{
+  font-family: 'Rubik One', sans-serif;
+  font-size: 30px;
+  color: white;
+}
+
+.pause{
+  color: grey;
+}
+.play{
+  color: #3cff00;
+}
+
+a:link{
+  text-decoration: none;
+}
+
+.login-signup{
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  justify-content: space-between;
+  width: 15%;
+  border-left: 2px solid #c1c3c6;
+  padding-left: 40px;
+}
+
+.login{
+  color: #c1c3c6;
+}
+
+.signup{
+  color: #c1c3c6;
+}
+
+.login:hover{
+  color: #70ffd7;
+  cursor: pointer;
+}
+
+.signup:hover{
+  color: #70ffd7;
+  cursor: pointer;
+}
+
+/*splash*/
+
+.splash-container{
+  display: flex;
+  justify-content:center;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.top-image-container{
+  background-image: url("https://res.cloudinary.com/deeptailor/image/upload/e_contrast:0,q_auto:good,r_0/v1478066750/collage-pic_noscrb.png");
+  background-position: center;
+  background-size: contain;
+  height: 650px;
+  width: 100%;
+}
+
+.overlay-text{
+  background: black;
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.overlay-text:hover{
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.overlay-text > h1 {
+  top: 100px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 36px;
+  color: white;
+  opacity: 1;
+}
+
+/*signup and login forms*/
+
+.login-form-container{
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  height: 650px;
+}
+
+.login-form{
+  font-family: 'Montserrat', sans-serif;
+}
+
+.login-form > p {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.submit{
+  padding:5px 15px;
+  background: black;
+  opacity: 0.7;
+  border:0 none;
+  cursor:pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 5px;
+  color: #c1c3c6;
+}
+
+.submit:hover{
+  cursor: pointer;
+  color: #70ffd7;
+}
+
+.login-input{
+  font-size: 20px;
+  padding: 5px;
+  margin: 10px 0;
+  border: 1px solid #c1c3c6;
+  border-radius: 5px;
+}
+
+.errors{
+  color: red;
+}
