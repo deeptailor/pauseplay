@@ -6,7 +6,7 @@ import App from './app'
 import LoginFormContainer from './session_forms/login_form_container';
 import SignupFormContainer from './session_forms/signup_form_container';
 import Splash from './splash/splash';
-import UserAccount from './user_account/user_account';
+import UserAccountContainer from './user_account/user_account_container';
 
 
 const _redirectIfLoggedIn = (nextState, replace) => {
@@ -24,7 +24,7 @@ const Root = ({ store }) => (
         <Route path="login" component={LoginFormContainer} onEnter={_redirectIfLoggedIn}></Route>
         <Route path="signup" component={SignupFormContainer} onEnter={_redirectIfLoggedIn}></Route>
       </Route>
-      <Route path="/users/:user_id" component={UserAccount}></Route>
+      <Route path="/users/:user_id" component={UserAccountContainer}></Route>
     </Router>
   </Provider>
 );

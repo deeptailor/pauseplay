@@ -29,11 +29,16 @@
    left: 0;
  }
 
+ .nav-container:hover{
+   opacity: 1;
+ }
+
 .nav-bar-top{
   display: flex;
   justify-content: space-between;
   width: 80%;
   margin: 0 auto;
+  padding: 15px;
 }
 
 .nav-bar-top > div{
@@ -44,6 +49,10 @@
   font-family: 'Rubik One', sans-serif;
   font-size: 30px;
   color: white;
+}
+
+.logo-header:hover{
+
 }
 
 .pause{
@@ -115,19 +124,27 @@ a:-webkit-any-link{
   align-items: center;
   justify-content: center;
   margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 36px;
+  color: white;
 }
 
 .overlay-text:hover{
   cursor: pointer;
-  opacity: 0.6;
+  opacity: 0.5;
 }
 
-.overlay-text > h1 {
-  top: 100px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 36px;
-  color: white;
-  opacity: 1;
+.overlay-text > .logo{
+  border: 2px solid white;
+  border-radius: 20px;
+  font-size: 60px;
+  font-weight: bold;
+  margin: 20px;
+  padding: 5px;
+  font-family: 'Rubik One', sans-serif;
 }
 
 /*signup and login forms*/
@@ -204,6 +221,7 @@ a:-webkit-any-link{
 }
 
 .user_account_sidebar > a:link{
+  font-family: 'Rubik One', sans-serif;
   margin: -160px 0 160px 0;
 }
 

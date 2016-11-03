@@ -20,6 +20,7 @@ class UserAccount extends React.Component{
 
         <div className="user_account_main">
           <div className="user_account_user_info">
+            <h1>{this.props.currentUser.username}</h1>
             <div className="user_account_picture"></div>
             <div className="user_account_description"></div>
           </div>
