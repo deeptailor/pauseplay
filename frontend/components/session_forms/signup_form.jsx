@@ -62,14 +62,14 @@ class SignupForm extends React.Component {
           <input type="text"
                 value={this.state.description}
                 onChange={this.update("description")}
-                placeholder="Description"
+                placeholder="Description(optional)"
                 className="login-input" />
           <br/>
 
           <input type="text"
 								value={this.state.profile_image_url}
 								onChange={this.update("profile_image_url")}
-                placeholder="Profile Picture URL"
+                placeholder="Profile Picture URL(optional)"
 								className="login-input" />
           <br/>
 

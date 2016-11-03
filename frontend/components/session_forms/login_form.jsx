@@ -5,6 +5,7 @@ class LoginForm extends React.Component {
     super(props)
     this.state = {username: '', password:''};
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.guestLogin = this.guestLogin.bind(this);
   }
 
   componentDidUpdate(){
@@ -27,6 +28,12 @@ class LoginForm extends React.Component {
     e.preventDefault();
     const user = this.state;
     this.props.login({user});
+  }
+
+  guestLogin(e){
+    e.preventDefault;
+    const guest = {user:{username:'guest',password:'password'}}
+    this.props.login(guest);
   }
 
   renderErrors(){
@@ -58,7 +65,7 @@ class LoginForm extends React.Component {
           <br/>
           <div className="login-buttons">
             <input type="submit" value="Log In" className="submit" />
-            <input type="button" value="Guest" className="submit" />
+            <input type="button" value="Guest" className="submit" onClick={this.guestLogin} />
           </div>
         </form>
       </div>
