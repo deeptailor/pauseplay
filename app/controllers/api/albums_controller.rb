@@ -2,9 +2,9 @@ class Api::AlbumsController < ApplicationController
 
 
     def index
-      if (album_params[:artist_id])
+      if (params[:artist_id])
         @albums = @albums.where(artist_id:albums_params[:artist_id])
-      elsif (album_params[:name])
+      elsif (params[:name])
         @albums = @albums.where(name: album_params[:name])
       else
         @albums = Album.all
@@ -21,7 +21,7 @@ class Api::AlbumsController < ApplicationController
     private
 
     def album_params
-      params.require(:artist).permit(:name, :artist_id)
+      params.require(:album).permit(:name, :artist_id)
     end
 
     def find_album
