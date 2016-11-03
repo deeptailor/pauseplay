@@ -186,6 +186,11 @@ a:-webkit-any-link{
   color: #70ffd7;
 }
 
+.login-buttons{
+  display: flex;
+  justify-content: space-between;
+}
+
 .login-input{
   font-size: 20px;
   padding: 5px;
