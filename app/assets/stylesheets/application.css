@@ -17,7 +17,7 @@
  .app-container{
    width: 80%;
    margin: 0 auto;
-   overflow: visible;
+   overflow: hidden;
  }
 
  .nav-container{
@@ -27,6 +27,9 @@
    opacity: 0.7;
    z-index: 100;
    left: 0;
+   height: 10vh;
+   display: flex;
+   justify-content: center;
  }
 
  .nav-container:hover{
