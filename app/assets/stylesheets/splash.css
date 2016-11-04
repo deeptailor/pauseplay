@@ -1,0 +1,106 @@
+
+.splash-container{
+  display: flex;
+  justify-content:center;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.top-image-container{
+  background-image: url("https://res.cloudinary.com/deeptailor/image/upload/e_contrast:0,q_auto:good,r_0/v1478066750/collage-pic_noscrb.png");
+  background-position: center;
+  background-size: contain;
+  height: 90vh;
+  width: 100%;
+}
+
+.overlay-text{
+  background: black;
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 36px;
+  color: white;
+}
+
+.overlay-text:hover{
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.overlay-text > .logo{
+  border: 2px solid white;
+  border-radius: 20px;
+  font-size: 60px;
+  font-weight: bold;
+  margin: 20px;
+  padding: 5px;
+  font-family: 'Rubik One', sans-serif;
+}
+
+/*signup and login forms*/
+
+.login-form-container{
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  height: 650px;
+}
+
+.login-form{
+  font-family: 'Montserrat', sans-serif;
+}
+
+.login-form > p {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.submit{
+  padding:5px 15px;
+  background: black;
+  opacity: 0.7;
+  border:0 none;
+  cursor:pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 5px;
+  color: #c1c3c6;
+}
+
+.submit:hover{
+  cursor: pointer;
+  color: #70ffd7;
+}
+
+.login-buttons{
+  display: flex;
+  justify-content: space-between;
+}
+
+.login-input{
+  font-size: 16px;
+  width: 250px;
+  padding: 5px;
+  margin: 10px 0;
+  border: 1px solid #c1c3c6;
+  border-radius: 5px;
+}
+
+.errors{
+  color: red;
+}
