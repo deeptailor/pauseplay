@@ -5,7 +5,7 @@ import React from 'react';
 import App from './app'
 import LoginFormContainer from './session_forms/login_form_container';
 import SignupFormContainer from './session_forms/signup_form_container';
-import Splash from './splash/splash';
+import SplashContainer from './splash/splash_container';
 import UserAccountContainer from './user_account/user_account_container';
 
 
@@ -20,7 +20,7 @@ const Root = ({ store }) => (
   <Provider store={store}>
     <Router history={hashHistory}>
       <Route path="/" component={App}>
-        <IndexRoute component={Splash}/>
+        <IndexRoute component={SplashContainer}/>
         <Route path="login" component={LoginFormContainer} onEnter={_redirectIfLoggedIn}></Route>
         <Route path="signup" component={SignupFormContainer} onEnter={_redirectIfLoggedIn}></Route>
       </Route>
