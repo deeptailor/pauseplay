@@ -18,7 +18,7 @@ const SongsMiddleware = ({getState, dispatch}) => (next) => (action) => {
   const receiveArtistSuccessCb = (artist) => dispatch(receiveArtist(artist));
   const receiveAlbumsSuccessCb = (albums) => dispatch(receiveAlbums(albums));
   const receiveAlbumSuccessCb = (album) => dispatch(receiveAlbum(album));
-  const receiveSongsSuccessCb = (songs) => dispatch(receiveAlbum(songs));
+  const receiveSongsSuccessCb = (songs) => dispatch(receiveSongs(songs));
   const errorscb = (errors) => console.log(errors);
 
   switch (action.type){

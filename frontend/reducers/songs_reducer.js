@@ -36,7 +36,7 @@ const SongReducer = (state = _nullSongInfo, action) => {
       return newState;
 
     case RECEIVE_ALBUMS:
-      newState.albums = action.albums;
+      newState.albums = (action.albums ? action.albums : {});
       newState.songs = {};
       newState.artists = {};
       return newState;
@@ -48,7 +48,7 @@ const SongReducer = (state = _nullSongInfo, action) => {
       return newState;
 
     case RECEIVE_SONGS:
-      newState.songs = action.songs;
+      newState.songs = (action.songs ? action.songs : {});
       newState.artists = {};
       newState.albums = {};
       return newState;

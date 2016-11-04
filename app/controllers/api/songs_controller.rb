@@ -2,10 +2,12 @@ class Api::SongsController < ApplicationController
 
 
     def index
-      if (params[:song][:title])
-        @songs = Song.where(title:song_params[:title])
-      elsif (params[:song][:album_id])
-        @songs = Song.where(album_id:song_params[:album_id])
+      if(params[:song])
+        if (params[:song][:title])
+          @songs = Song.where(title:song_params[:title])
+        elsif (params[:song][:album_id])
+          @songs = Song.where(album_id:song_params[:album_id])
+        end
       else
         @songs = Song.all
       end
@@ -17,7 +19,4 @@ class Api::SongsController < ApplicationController
       params.require(:song).permit(:title, :album_id)
     end
 
-    def find_artist
-      @artist = Artist.find_by(id:params[:id])
-    end
 end
