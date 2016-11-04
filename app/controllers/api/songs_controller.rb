@@ -2,9 +2,9 @@ class Api::SongsController < ApplicationController
 
 
     def index
-      if (params[:title])
+      if (params[:song][:title])
         @songs = Song.where(title:song_params[:title])
-      elsif (params[:album_id])
+      elsif (params[:song][:album_id])
         @songs = Song.where(album_id:song_params[:album_id])
       else
         @songs = Song.all

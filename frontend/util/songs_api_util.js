@@ -21,7 +21,7 @@ export const fetchAlbums = (success, error, data = {}) => {
   $.ajax({
     method: 'get',
     url: 'api/albums',
-    data: data,
+    data: {album:data},
     success:success,
     error:error
   });
@@ -39,7 +39,7 @@ export const fetchSongs = (success, error, data = {}) => {
   $.ajax({
     method: 'get',
     url: 'api/songs',
-    data: data,
+    data: {song:data},
     success:success,
     error:error
   });

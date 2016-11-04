@@ -2,10 +2,10 @@ class Api::AlbumsController < ApplicationController
 
 
     def index
-      if (params[:artist_id])
-        @albums = @albums.where(artist_id:albums_params[:artist_id])
-      elsif (params[:name])
-        @albums = @albums.where(name: album_params[:name])
+      if (params[:album][:artist_id])
+        @albums = Album.where(artist_id:album_params[:artist_id])
+      elsif (params[:album][:name])
+        @albums = Album.where(name: album_params[:name])
       else
         @albums = Album.all
       end

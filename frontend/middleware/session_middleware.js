@@ -7,10 +7,10 @@ import { receiveCurrentUser,
 
 import { login, signup, logout} from '../util/session_api_util'
 
-const SessionMiddleware = (state) => (next) => (action) => {
+const SessionMiddleware = ({getState, dispatch}) => (next) => (action) => {
 
-  const successCb = (user) => store.dispatch(receiveCurrentUser(user));
-  const errorCb = (errors) => store.dispatch(receiveErrors(errors.responseJSON));
+  const successCb = (user) => dispatch(receiveCurrentUser(user));
+  const errorCb = (errors) => dispatch(receiveErrors(errors.responseJSON));
 
   switch (action.type){
 
