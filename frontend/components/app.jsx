@@ -6,7 +6,6 @@ const App = ({ children }) => (
   <div className="app-container">
     <GreetingContainer/>
     {children}
-    <AudioPlayer/>
   </div>
 );
 

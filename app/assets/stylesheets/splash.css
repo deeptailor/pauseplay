@@ -30,12 +30,13 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 36px;
   color: white;
-}
-
-.overlay-text:hover{
-  cursor: pointer;
   opacity: 0.5;
 }
+
+/*.overlay-text:hover{
+  cursor: pointer;
+  opacity: 0.5;
+}*/
 
 .overlay-text > .logo{
   border: 2px solid white;

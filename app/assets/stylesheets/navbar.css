@@ -10,9 +10,9 @@
   justify-content: center;
 }
 
-.nav-container:hover{
+/*.nav-container:hover{
   opacity: 1;
-}
+}*/
 
 .nav-bar-top{
  display: flex;
