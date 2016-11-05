@@ -1,0 +1,34 @@
+.albums-showpage-container{
+  display:flex;
+  /*flex-direction: column;*/
+  min-height: 100vh;
+  justify-content: center;;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+}
+
+.song-list-container{
+  margin: 10vh 5vh;
+}
+
+.song-list-ol > li {
+  padding: 5px;
+  margin: 2px;
+  border: 1px solid black;
+  border-radius: 10px;
+  transition: background-color 1s, color 1s;
+}
+
+.song-list-ol > li:hover{
+  color: white;
+  background-color: black;
+}
+
+.albums-showpage-right-column{
+  height:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

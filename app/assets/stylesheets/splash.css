@@ -128,12 +128,12 @@
   top:3px;
   left:0;
   right: 0;
-  border: 1px solid black;
   border-radius: 10px;
-  background-color: black;
+  background: black;
   opacity: 0.6;
   color: white;
   text-align: center;
+  transition: color 1s;
 }
 
 .whats-new-splash:hover{

@@ -14,6 +14,7 @@ guest = {username:'guest',
 
 User.create(guest);
 User.create({username:'deeptailor', password:'password123', description:'Founder', profile_image_url:"http://s3-us-west-2.amazonaws.com/aa-progress-tracker/students/avatars/000/001/477/medium/Deep_Tailor.jpg?1474325077"})
+User.create({username:'prina', password:'password123', description:'Founders Wife'})
 User.create({username:'archna', password:'password', description:'Sister'})
 User.create({username:'craig', password:'password', description:'Brother In-law'})
 User.create({username:'akshay', password:'password', description:'cousin'})
@@ -52,3 +53,22 @@ Album.create({name:'Head Full Of Dreams', artist_id:3, album_art_url:'https://re
 Album.create({name:'Anti', artist_id:4, album_art_url:'https://res.cloudinary.com/deeptailor/image/upload/c_scale,w_400/v1478206061/album_art/rihanna-anti_hyujv2.png'})
 Album.create({name:'Views', artist_id:5, album_art_url:'https://res.cloudinary.com/deeptailor/image/upload/c_scale,w_400/v1478206061/album_art/drake-views_z58rjr.png'})
 Album.create({name:'Hotel California', artist_id:6, album_art_url:'https://res.cloudinary.com/deeptailor/image/upload/c_scale,w_400/v1478206061/album_art/tyga-hotelcalifornia_vh51lz.png'})
+
+Song.create({album_id:1, title:'Welcome To New York', audio_url:'https://res.cloudinary.com/deeptailor/video/upload/v1478324806/01_Welcome_To_New_York_cmq6as.mp3'})
+Song.create({album_id:1, title:'Blank Space', audio_url:'https://res.cloudinary.com/deeptailor/video/upload/v1478324814/02_Blank_Space_fevic3.mp3'})
+Song.create({album_id:1, title:'Style', audio_url:'https://res.cloudinary.com/deeptailor/video/upload/v1478324814/03_Style_qbv47l.mp3'})
+Song.create({album_id:1, title:'Out Of The Woods', audio_url:'https://res.cloudinary.com/deeptailor/video/upload/v1478324815/04_Out_Of_The_Woods_ms6y0c.mp3'})
+Song.create({album_id:1, title:'All You had To Do Was Stay', audio_url:'https://res.cloudinary.com/deeptailor/video/upload/v1478324809/05_All_You_Had_To_Do_Was_Stay_y9jdak.mp3'})
+Song.create({album_id:1, title:'Shake It Off', audio_url:'https://res.cloudinary.com/deeptailor/video/upload/v1478324783/06_Shake_It_Off_angaso.mp3'})
+Song.create({album_id:1, title:'I Wish You Would', audio_url:'https://res.cloudinary.com/deeptailor/video/upload/v1478324849/07_I_Wish_You_Would_cvsudq.mp3'})
+Song.create({album_id:1, title:'Bad Blood', audio_url:'https://res.cloudinary.com/deeptailor/video/upload/v1478324867/08_Bad_Blood_aejm9g.mp3'})
+Song.create({album_id:1, title:'Wildest Dreams', audio_url:'http://res.cloudinary.com/deeptailor/video/upload/v1478324892/09_Wildest_Dreams_ghnajb.mp3'})
+Song.create({album_id:1, title:'How You Get The Girl', audio_url:'https://res.cloudinary.com/deeptailor/video/upload/v1478324912/10_How_You_Get_The_Girl_fheumo.mp3'})
+Song.create({album_id:1, title:'This Love', audio_url:'https://res.cloudinary.com/deeptailor/video/upload/v1478324913/11_This_Love_rdozn1.mp3'})
+Song.create({album_id:1, title:'I Know Places', audio_url:'https://res.cloudinary.com/deeptailor/video/upload/v1478324888/12_I_Know_Places_lreguc.mp3'})
+Song.create({album_id:1, title:'Clean', audio_url:'https://res.cloudinary.com/deeptailor/video/upload/v1478324947/13_Clean_rblwpl.mp3'})
+Song.create({album_id:1, title:'Wonderland', audio_url:'https://res.cloudinary.com/deeptailor/video/upload/v1478324945/14_Wonderland_vhsrbz.mp3'})
+Song.create({album_id:1, title:'You Are In Love', audio_url:'https://res.cloudinary.com/deeptailor/video/upload/v1478324977/15_You_Are_In_Love_mo82xh.mp3'})
+Song.create({album_id:1, title:'New Romantics', audio_url:'https://res.cloudinary.com/deeptailor/video/upload/v1478324975/16_New_Romantics_tcytjs.mp3'})
+
+Song.create({album_id:2, title:'Run Away', audio_url:'https://res.cloudinary.com/deeptailor/video/upload/v1478324584/RunAway-Arjun.mp3'})
