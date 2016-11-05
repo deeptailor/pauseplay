@@ -26,14 +26,32 @@
  margin: auto 0;
 }
 
+.nav-bar-center-tabs{
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 30%;
+}
+
+.nav-bar-explore:hover{
+  color: #70ffd7;
+}
+
+.search-bar{
+  -webkit-appearance: none;
+  font-size: 16px;
+  padding: 5px;
+  width: 40%;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
 .logo-header{
  font-family: 'Rubik One', sans-serif;
  font-size: 30px;
  color: white;
-}
-
-.logo-header:hover{
-
 }
 
 .pause{

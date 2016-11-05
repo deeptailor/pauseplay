@@ -11,6 +11,10 @@ const currentUserNull = () => {
           <Link to="/">PAU<span className='pause'>II</span>SEPLA<span className="play">></span>Y</Link>
         </div>
 
+        <div className="nav-bar-center-tabs">
+          <input type='text' className="search-bar" placeholder='Search'/>
+        </div>
+
         <div className='login-signup'>
         <Link to="/login" className='login'>Log In</Link>
         <Link to="/signup" className='signup'>Sign Up</Link>
@@ -28,6 +32,11 @@ const currentUserNotNull = (user, logout) => {
       <div className="nav-bar-top">
         <div className="logo-header">
           <Link to="/">PAU<span className='pause'>II</span>SEPLA<span className="play">></span>Y</Link>
+        </div>
+
+        <div className="nav-bar-center-tabs">
+          <input type='text' className="search-bar" placeholder="Search"/>
+          <Link to={`albums`} className="nav-bar-explore">Explore</Link>
         </div>
 
         <div className='login-signup'>

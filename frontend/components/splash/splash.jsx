@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
+// to={`albums/${album.id}`}
 const albumStyle = (imgUrl) =>({
   backgroundImage: 'url(' + imgUrl + ')',
   backgroundPosition: 'center',
@@ -11,11 +12,15 @@ class Splash extends React.Component{
   constructor(props){
     super(props)
     this.renderAlbums = this.renderAlbums.bind(this);
-
+    this.routerPush = this.routerPush.bind(this);
   }
 
   componentWillMount(){
     this.props.fetchAlbums();
+  }
+
+  routerPush(id){
+    return () => this.props.router.push(`albums/${id}`);
   }
 
   renderAlbums(){
@@ -23,7 +28,12 @@ class Splash extends React.Component{
       album =>
       <li key={`album-${album.id}`}>
         <div className="album-art-container" style={albumStyle(album.album_art_url)}>
-          <div className="album-overlay"><span>&#9658;</span></div>
+          <div className="album-overlay">
+            <span onClick={this.routerPush(album.id)} className="full-album-span">
+              <p className="full-album-text">Full Album</p>
+            </span>
+            <p className="overlay-album-name">{album.name}</p>
+          </div>
         </div>
       </li>
     )

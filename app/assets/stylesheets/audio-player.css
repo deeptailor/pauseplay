@@ -1,0 +1,19 @@
+.audio-bar-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom:0;
+  left: 0;
+  width: 100%;
+  z-index: 99;
+  opacity: 0.3;
+}
+
+.audio-bar{
+  -webkit-appearance: none;
+}
+
+.audio-bar-container:hover{
+  opacity: 1;
+}

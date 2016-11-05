@@ -1,11 +1,12 @@
 import React from 'react';
 import GreetingContainer from './greeting/greeting_container';
-import UserAccount from './user_account/user_account';
+import AudioPlayer from './audio-player/audio-player';
 
 const App = ({ children }) => (
   <div className="app-container">
     <GreetingContainer/>
     {children}
+    <AudioPlayer/>
   </div>
 );
 
