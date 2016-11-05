@@ -21,8 +21,15 @@ class Albums extends React.Component {
   renderSongs(){
     if(this.props.songs){
       return this.props.songs.map(song =>
-        <li key= {`song-${song.id}`}>
-          {song.title}
+        <li key= {`song-${song.id}`} className="song-title-container">
+          <div className="song-title">
+            {song.title}
+          </div>
+
+          <div className="buttons-on-songs">
+            <i className="material-icons">play_circle_outline</i>
+            <i className="material-icons">playlist_add</i>
+          </div>
         </li>)
     }
   }
@@ -42,8 +49,9 @@ class Albums extends React.Component {
           </div>
           <div className="albums-showpage-album-name">{album_name}</div>
         </div>
-        
+
         <div className="song-list-container">
+          <h2>Songs</h2>
           <ol className="song-list-ol">
             {this.renderSongs()}
           </ol>
