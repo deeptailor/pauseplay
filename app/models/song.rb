@@ -11,9 +11,9 @@
 #  updated_at   :datetime         not null
 #
 
-class Song < ApplicationRecord
+class Song < ActiveRecord::Base
 
   validates :title, :album_id, :audio_url, presence:true
 
-  belongs_to :albums
+  belongs_to :album
 end
