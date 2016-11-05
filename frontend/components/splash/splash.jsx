@@ -45,7 +45,7 @@ class Splash extends React.Component{
 
         <div className="top-image-container">
           <div className="overlay-text">
-            <h1 className="logo">II></h1>
+            <h1 className="logo">II<span className="play">></span></h1>
             <br/>
             <h1>MUSIC FOR EVERYONE</h1>
           </div>

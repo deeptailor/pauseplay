@@ -30,13 +30,12 @@
   color: white;
   font-family: 'Montserrat', sans-serif;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 30%;
+  justify-content: flex-end;
+  width: 50%;
 }
 
 .nav-bar-explore:hover{
-  color: #70ffd7;
+  color: #3cff00;
 }
 
 .search-bar{
@@ -86,11 +85,11 @@ a:-webkit-any-link{
 }
 
 .login:hover{
- color: #70ffd7;
+ color: #3cff00;
  cursor: pointer;
 }
 
 .signup:hover{
- color: #70ffd7;
+ color: #3cff00;
  cursor: pointer;
 }
