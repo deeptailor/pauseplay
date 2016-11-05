@@ -52,6 +52,7 @@
   width: 80%;
   margin: 0 auto;
   padding: 20px 0;
+  position: relative;
 }
 
 .splash-albums-ul{
@@ -117,6 +118,27 @@
   position: absolute;
   bottom: 0;
   margin: 0 auto;
+}
+
+.whats-new-splash{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  position: absolute;
+  padding: 2px;
+  top:3px;
+  left:0;
+  right: 0;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: black;
+  opacity: 0.6;
+  color: white;
+  text-align: center;
+}
+
+.whats-new-splash:hover{
+  color: #3cff00;
+  cursor: pointer;
 }
 
 .splash-footer-container{
