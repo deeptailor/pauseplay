@@ -45,7 +45,7 @@ class Albums extends React.Component {
       <div className="albums-showpage-container">
 
         <div className="albums-showpage-right-column">
-          <div className="album-art-container" style={albumStyle(album_art_url)}>
+          <div className="album-art-container-album-showpage" style={albumStyle(album_art_url)}>
           </div>
           <div className="albums-showpage-album-name">{album_name}</div>
         </div>

@@ -9,6 +9,16 @@
   opacity: 0.9;
 }
 
+.album-art-container-album-showpage{
+  border: 2px solid black;
+  border-radius: 7px;
+  height:36vh;
+  width: 36vh;
+  margin: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
 .albums-showpage-right-column{
   position: fixed;
   left: 8.8vw;;
