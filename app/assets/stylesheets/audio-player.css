@@ -1,19 +1,59 @@
 .audio-bar-container{
   display: flex;
+  height: 3vh;
+  border-radius: 10px;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   position: fixed;
+  padding: 5px;
   bottom:0;
   left: 0;
-  width: 100%;
-  z-index: 99;
-  opacity: 0.3;
+  width: 40%;
+  background: black;
+  opacity: 0.7;
+  text-align: center;
+  left: 0;
+  margin: 0 auto;
 }
 
-.audio-bar{
-  -webkit-appearance: none;
+
+.progress-bar{
+  width: 30%;
+  height: 2px;
+  background-color: white;
+  position: relative;
 }
 
-.audio-bar-container:hover{
-  opacity: 1;
+.progress-bar-color{
+  height: 100%;
+  background-color: #3cff00;
+  z-index: 2;
+  position: absolute;
+  left:0;
+}
+
+.loaded-bar-color{
+  background-color: grey;
+  height: 100%;
+  z-index: 1;
+}
+
+.audio-controls{
+  font-size: 24px;
+  color: white;
+  display: flex;
+  padding: 5px 10px 0 0;
+}
+
+.audio-bar-song-name{
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  margin: 0 10px;
+  padding-left: 10px;
+}
+
+.audio-bar-options{
+  padding: 5px 0 0 10px;
+
 }

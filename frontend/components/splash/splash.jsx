@@ -60,14 +60,15 @@ class Splash extends React.Component{
           <div className="splash-footer-container">
             <div className="splash-footer-inner-container">
               <ul className="splash-footer-ul-left">
-                <li>About</li>
-                <li>Contact</li>
+                <li><a href="https://www.linkedin.com/in/deep-tailor-16b0a660?trk=hp-identity-photo"><img className="contact-logo" src="https://res.cloudinary.com/deeptailor/image/upload/v1478383632/logos/In-White-128px-TM_uk1amf.png"/></a></li>
+                <li><a href="https://github.com/dtailor90"><img className="contact-logo" src="https://res.cloudinary.com/deeptailor/image/upload/v1478383625/logos/GitHub-Mark-Light-120px-plus_x9kzyx.png"/></a></li>
+                <li><a href="mailto:deeptailor@gmail.com"><i className="material-icons">email</i></a></li>
               </ul>
               <ul className="splash-footer-ul-center">
                 <li>Designed And Developed by Deep Tailor</li>
               </ul>
               <ul className="splash-footer-ul-right">
-                <Link to="/" onClick={window.scrollTo(0,0)}>PAU<span className='pause'>II</span>SEPLA<span className="play">></span>Y<span className="tm">&reg;</span></Link>
+                <Link to="/" onClick={window.scrollTo(0,0)}>PA<span className='pause'>II</span>SEPL<span className="play">></span>Y<span className="tm">&reg;</span></Link>
               </ul>
             </div>
           </div>

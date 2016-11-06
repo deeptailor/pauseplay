@@ -8,7 +8,7 @@ const currentUserNull = () => {
 
       <div className="nav-bar-top">
         <div className="logo-header">
-          <Link to="/">PAU<span className='pause'>II</span>SEPLA<span className="play">></span>Y</Link>
+          <Link to="/">PA<span className='pause'>II</span>SEPL<span className="play">></span>Y</Link>
         </div>
 
         <div className='login-signup'>
@@ -27,7 +27,7 @@ const currentUserNotNull = (user, logout) => {
 
       <div className="nav-bar-top">
         <div className="logo-header">
-          <Link to="/">PAU<span className='pause'>II</span>SEPLA<span className="play">></span>Y</Link>
+          <Link to="/">PA<span className='pause'>II</span>SEPL<span className="play">></span>Y</Link>
         </div>
 
         <div className="nav-bar-center-tabs">

@@ -12,10 +12,18 @@ class Albums extends React.Component {
   constructor(props){
     super(props)
     this.renderSongs = this.renderSongs.bind(this);
+    this.playSong = this.playSong.bind(this);
   }
 
   componentDidMount(){
     this.props.fetchAlbum(this.props.params.album_id)
+  }
+
+  playSong(song){
+    return (e) => {
+      e.preventDefault();
+      return this.props.playSong(song)
+    };
   }
 
   renderSongs(){
@@ -27,7 +35,7 @@ class Albums extends React.Component {
           </div>
 
           <div className="buttons-on-songs">
-            <i className="material-icons">play_circle_outline</i>
+            <i className="material-icons" onClick={this.playSong(song)}>play_circle_outline</i>
             <i className="material-icons">playlist_add</i>
           </div>
         </li>)

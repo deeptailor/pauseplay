@@ -1,10 +1,12 @@
-import {RECEIVE_ALL_ARTISTS, RECEIVE_ARTIST, RECEIVE_ALBUMS, RECEIVE_ALBUM, RECEIVE_SONGS} from '../actions/songs_actions'
+import {RECEIVE_ALL_ARTISTS, RECEIVE_ARTIST, RECEIVE_ALBUMS, RECEIVE_ALBUM, RECEIVE_SONGS, PLAY_SONG} from '../actions/songs_actions'
 import merge from 'lodash/merge';
 
 const _nullSongInfo = ({
   artists: {},
   albums: {},
-  songs: {}
+  songs: {},
+  currentSong: {},
+  playing: false
 });
 
 
@@ -51,6 +53,11 @@ const SongReducer = (state = _nullSongInfo, action) => {
       newState.songs = (action.songs ? action.songs : {});
       newState.artists = {};
       newState.albums = {};
+      return newState;
+
+    case PLAY_SONG:
+      newState.currentSong = action.song;
+      newState.playing = true;
       return newState;
 
     default:

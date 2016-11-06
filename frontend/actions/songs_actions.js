@@ -10,6 +10,8 @@ export const RECEIVE_ALBUMS = "RECEIVE_ALBUMS";
 export const RECEIVE_ALBUM = "RECEIVE_ALBUM";
 export const RECEIVE_SONGS = "RECEIVE_SONGS";
 
+export const PLAY_SONG = "PLAY_SONG";
+
 
 export const fetchAllArtists = () => ({
   type: FETCH_ALL_ARTISTS
@@ -60,4 +62,9 @@ export const receiveAlbum = (album) => ({
 export const receiveSongs = (songs) => ({
   type: RECEIVE_SONGS,
   songs: songs
+});
+
+export const playSong = (song) => ({
+  type: PLAY_SONG,
+  song: song
 });
