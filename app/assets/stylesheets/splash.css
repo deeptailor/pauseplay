@@ -121,17 +121,16 @@
 }
 
 .whats-new-splash{
-  font-family: 'Montserrat', sans-serif;
-  font-size: 16px;
   position: absolute;
-  padding: 2px;
+  height: 5px;
+  padding: 0;
   top:3px;
   left:0;
   right: 0;
   border-radius: 10px;
   background: black;
   opacity: 0.6;
-  color: white;
+  color: black;
   text-align: center;
   transition: color 1s;
 }

@@ -51,13 +51,13 @@ class Splash extends React.Component{
           </div>
 
           <div className="splash-album-container">
-            <div className="whats-new-splash" onClick={(e)=>window.scrollBy(0,window.innerHeight)}>New &nbsp; &#x022BD;</div>
+            <div className="whats-new-splash" onClick={(e)=>window.scrollBy(0,window.innerHeight)}><i className="material-icons">keyboard_arrow_down</i></div>
             <ul className="splash-albums-ul">
             {this.renderAlbums()}
             </ul>
           </div>
 
-          <div className="splash-footer-container">
+          <div className="splash-footer-container" id="footer">
             <div className="splash-footer-inner-container">
               <ul className="splash-footer-ul-left">
                 <li><a href="https://www.linkedin.com/in/deep-tailor-16b0a660?trk=hp-identity-photo"><img className="contact-logo" src="https://res.cloudinary.com/deeptailor/image/upload/v1478383632/logos/In-White-128px-TM_uk1amf.png"/></a></li>

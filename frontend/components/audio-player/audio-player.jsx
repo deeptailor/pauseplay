@@ -38,10 +38,10 @@ class AudioPlayer extends React.Component{
 
   showPlayer(){
     if(this.props.currentSong.audio_url){
-      return {display: 'flex'}
+      return {visibility: 'visible'}
     }
     else{
-      return {display: 'none'}
+      return {visibility: 'hidden'}
     }
   }
 
@@ -83,35 +83,37 @@ toggleLoopColor(){
 }
 
 
-  render(){
-    return (
-      <div className="audio-bar-container" style={this.showPlayer()}>
-        <ReactPlayer
-          playing={this.state.playing}
-          url={this.state.currentSong}
-          hidden={true}
-          loop={this.state.loop}
-          onProgress={this.updatePlaybar}
+
+render(){
+
+  return (
+    <div className="audio-bar-container" id="audiobar" style={this.showPlayer()}>
+      <ReactPlayer
+        playing={this.state.playing}
+        loop={this.state.loop}
+        url={this.state.currentSong}
+        hidden={true}
+        onProgress={this.updatePlaybar}
         />
 
-        <div className="audio-controls">
-          <div className="rewind-audio-control"><i className="material-icons">skip_previous</i></div>
-          <div className="play-pause-audio-control">{this.togglePlayPauseButton()}</div>
-          <div className="forward-audio-control"><i className="material-icons">skip_next</i></div>
-        </div>
-
-        <div className="progress-bar">
-            <div className="progress-bar-color" style={{width:`${this.state.progress}%`}}/>
-            <div className="loaded-bar-color" style={{width:`${this.state.loaded}%`}}/>
-        </div>
-
-        <div className="audio-bar-song-name">
-          <p>{this.props.currentSong.title}</p>
-        </div>
-        <div className="audio-bar-options">
-          <i className="material-icons" onClick={this.toggleLoop} style={this.toggleLoopColor()}>loop</i>
-        </div>
+      <div className="audio-controls">
+        <div className="rewind-audio-control"><i className="material-icons">skip_previous</i></div>
+        <div className="play-pause-audio-control">{this.togglePlayPauseButton()}</div>
+        <div className="forward-audio-control"><i className="material-icons">skip_next</i></div>
       </div>
+
+      <div className="progress-bar">
+          <div className="progress-bar-color" style={{width:`${this.state.progress}%`}}/>
+          <div className="loaded-bar-color" style={{width:`${this.state.loaded}%`}}/>
+      </div>
+
+      <div className="audio-bar-song-name">
+        <p>{this.props.currentSong.title}</p>
+      </div>
+      <div className="audio-bar-options">
+        <i className="material-icons" onClick={this.toggleLoop} style={this.toggleLoopColor()}>loop</i>
+      </div>
+    </div>
     )
   }
 }

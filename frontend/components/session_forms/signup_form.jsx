@@ -5,6 +5,7 @@ class SignupForm extends React.Component {
     super(props)
     this.state = {username: '', password:'', description:'', profile_image_url:''};
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.login = this.login.bind(this);
   }
 
   componentDidUpdate(){
@@ -39,6 +40,10 @@ class SignupForm extends React.Component {
         {this.props.errors.map((error,i) => <li key={`error-${i}`}>{error}</li>)}
       </ul>
     );
+  }
+
+  login(){
+    this.props.router.push('login')
   }
 
   render(){
@@ -77,7 +82,11 @@ class SignupForm extends React.Component {
 								className="login-input" />
           <br/>
 
-          <input type="submit" value="Sign Up" className="submit" />
+          <input type="submit" value="Sign Up" className="submit-login" />
+
+          <div className="form-text">
+            <p>Already have an account? &nbsp;<a onClick={this.login}>Login</a></p>
+          </div>
 
         </form>
       </div>

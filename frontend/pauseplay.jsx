@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
 
+
   window.fetchAllArtists = fetchAllArtists;
   window.fetchArtist = fetchArtist;
   window.fetchAlbums = fetchAlbums;

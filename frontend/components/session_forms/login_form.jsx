@@ -6,6 +6,7 @@ class LoginForm extends React.Component {
     this.state = {username: '', password:''};
     this.handleSubmit = this.handleSubmit.bind(this);
     this.guestLogin = this.guestLogin.bind(this);
+    this.signup = this.signup.bind(this);
   }
 
   componentDidUpdate(){
@@ -49,6 +50,10 @@ class LoginForm extends React.Component {
     );
   }
 
+  signup(){
+    this.props.router.push('signup')
+  }
+
   render(){
     return (
       <div className="login-form-container">
@@ -61,15 +66,20 @@ class LoginForm extends React.Component {
                 placeholder="Username"
 								className="login-input" />
           <br/>
+
           <input type="password"
 								value={this.state.password}
 								onChange={this.update("password")}
                 placeholder="Password"
-								className="login-input" />
+								className="password-input"/>
           <br/>
+
           <div className="login-buttons">
-            <input type="submit" value="Log In" className="submit" />
-            <input type="button" value="Guest" className="submit" onClick={this.guestLogin} />
+            <input type="submit" value="Log In" className="submit-login" />
+            <input type="button" value="Guest" className="submit-guest" onClick={this.guestLogin} />
+          </div>
+          <div className="form-text">
+            <p>Don't have an account? &nbsp;<a onClick={this.signup}>Signup</a></p>
           </div>
         </form>
       </div>

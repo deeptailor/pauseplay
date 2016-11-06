@@ -18,7 +18,7 @@
   margin-bottom: 10px;
 }
 
-.submit{
+.submit-guest{
   padding:5px 15px;
   background: black;
   opacity: 0.7;
@@ -29,12 +29,33 @@
   font-size: 20px;
   font-weight: bold;
   margin-top: 5px;
-  color: #c1c3c6;
+  color: white;
 }
 
-.submit:hover{
+.submit-login{
+  padding:5px 15px;
+  background: white;
+  opacity: 1;
+  border:1px solid black;
+  cursor:pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 5px;
+  color: black;
+}
+
+
+.submit-guest:hover{
   cursor: pointer;
-  color: #70ffd7;
+  color: #3cff00;
+}
+
+.submit-login:hover{
+  cursor: pointer;
+  color: #3cff00;
+  border-color: #3cff00;
 }
 
 .login-buttons{
@@ -51,6 +72,32 @@
   border-radius: 5px;
 }
 
+.password-input{
+  font-size: 16px;
+  width: 250px;
+  padding: 5px;
+  margin: 10px 0;
+  border: 1px solid #c1c3c6;
+  border-radius: 5px;
+  background-image: url('https://res.cloudinary.com/deeptailor/image/upload/e_grayscale,o_32/v1478465158/logos/lock-icon.png');
+  background-position: right;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 .errors{
   color: red;
+}
+
+.form-text{
+  margin-top: 15px;
+  padding: 5px;
+}
+
+.form-text > p > a {
+  color: blue;
+}
+
+.form-text > p > a:hover {
+  cursor: pointer;
 }
