@@ -11,13 +11,16 @@ class AudioPlayer extends React.Component{
       playing:false,
       progress: 0,
       loaded: 0,
-      loop: false
+      loop: false,
+      que: [],
+      queLength: 0
     };
     this.togglePlayPauseAction = this.togglePlayPauseAction.bind(this);
     this.updatePlaybar = this.updatePlaybar.bind(this);
     this.showPlayer = this.showPlayer.bind(this);
     this.togglePlayPauseButton = this.togglePlayPauseButton.bind(this);
     this.toggleLoop = this.toggleLoop.bind(this);
+    this.playNextSongInQue = this.playNextSongInQue.bind(this);
   }
 
   componentWillReceiveProps(nextProps){
@@ -26,6 +29,9 @@ class AudioPlayer extends React.Component{
         currentSong: nextProps.currentSong.audio_url,
         playing: true
       });
+    }
+    if(nextProps.que.length !== 0){
+      this.setState({que: nextProps.que, queLength: nextProps.que.length})
     }
   }
 
@@ -82,10 +88,19 @@ toggleLoopColor(){
   }
 }
 
+playNextSongInQue(){
+  if(this.props.que.length !== 0){
+    this.props.addToCurrentSongFromQue();
+    this.setState({queLength: this.state.que.slice(1), progress: 0})
+  }
+  else{
+    this.setState({que: [], queLength: 0, playing: false, progress: 0, currentSong: ''})
+  }
+}
+
 
 
 render(){
-
   return (
     <div className="audio-bar-container" id="audiobar" style={this.showPlayer()}>
       <ReactPlayer
@@ -94,12 +109,13 @@ render(){
         url={this.state.currentSong}
         hidden={true}
         onProgress={this.updatePlaybar}
+        onEnded={this.playNextSongInQue}
         />
 
       <div className="audio-controls">
         <div className="rewind-audio-control"><i className="material-icons">skip_previous</i></div>
         <div className="play-pause-audio-control">{this.togglePlayPauseButton()}</div>
-        <div className="forward-audio-control"><i className="material-icons">skip_next</i></div>
+        <div className="forward-audio-control"><i className="material-icons" onClick={this.playNextSongInQue}>skip_next</i></div>
       </div>
 
       <div className="progress-bar">
@@ -112,6 +128,9 @@ render(){
       </div>
       <div className="audio-bar-options">
         <i className="material-icons" onClick={this.toggleLoop} style={this.toggleLoopColor()}>loop</i>
+      </div>
+      <div className="audio-que">
+        <p>{this.state.que.length}</p>
       </div>
     </div>
     )

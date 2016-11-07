@@ -72,3 +72,15 @@ Song.create({album_id:1, title:'You Are In Love', audio_url:'https://res.cloudin
 Song.create({album_id:1, title:'New Romantics', audio_url:'https://res.cloudinary.com/deeptailor/video/upload/v1478324975/16_New_Romantics_tcytjs.mp3'})
 
 Song.create({album_id:2, title:'Run Away', audio_url:'https://res.cloudinary.com/deeptailor/video/upload/v1478324584/RunAway-Arjun.mp3'})
+
+Song.create({album_id: 3, title: 'A Head Full Of Dreams', audio_url:'https://res.cloudinary.com/deeptailor/video/upload/v1478468257/coldplay-headfullofdreams/01_coldplay_-_a_head_full_of_dreams_yftm7w.mp3'})
+Song.create({album_id: 3, title: 'Birds', audio_url:'https://res.cloudinary.com/deeptailor/video/upload/v1478468269/coldplay-headfullofdreams/02_coldplay_-_birds_q6ipdo.mp3'})
+Song.create({album_id: 3, title: 'Hymn For the Weekend ft. Beyonce', audio_url:'https://res.cloudinary.com/deeptailor/video/upload/v1478468305/coldplay-headfullofdreams/03_coldplay_ft._beyonce_-_hymn_for_the_weekend_o4zghm.mp3'})
+Song.create({album_id: 3, title: 'Everglow', audio_url:'https://res.cloudinary.com/deeptailor/video/upload/v1478468280/coldplay-headfullofdreams/04_coldplay_-_everglow_ccchpz.mp3'})
+Song.create({album_id: 3, title: 'Adventure Of A Lifetime', audio_url:'https://res.cloudinary.com/deeptailor/video/upload/v1478468290/coldplay-headfullofdreams/05_coldplay_-_adventure_of_a_lifetime_qlupy2.mp3'})
+Song.create({album_id: 3, title: 'Fun ft. Tove Lo', audio_url:'https://res.cloudinary.com/deeptailor/video/upload/v1478468327/coldplay-headfullofdreams/06_coldplay_ft._tove_lo_-_fun_ntfjgv.mp3'})
+Song.create({album_id: 3, title: 'Kaleidoscope', audio_url:'https://res.cloudinary.com/deeptailor/video/upload/v1478468290/coldplay-headfullofdreams/07_coldplay_-_kaleidoscope_wdfpqq.mp3'})
+Song.create({album_id: 3, title: 'Army Of One', audio_url:'https://res.cloudinary.com/deeptailor/video/upload/v1478468351/coldplay-headfullofdreams/08_coldplay_-_army_of_one__incl._x_marks_the_spot_ipt9js.mp3'})
+Song.create({album_id: 3, title: 'Amazing', audio_url:'https://res.cloudinary.com/deeptailor/video/upload/v1478468336/coldplay-headfullofdreams/09_coldplay_-_amazing_day_pvgunu.mp3'})
+Song.create({album_id: 3, title: 'Colour Spectrum', audio_url:'https://res.cloudinary.com/deeptailor/video/upload/v1478468314/coldplay-headfullofdreams/10_coldplay_-_colour_spectrum_pvexus.mp3'})
+Song.create({album_id: 3, title: 'Up And Up', audio_url:'https://res.cloudinary.com/deeptailor/video/upload/v1478468356/coldplay-headfullofdreams/11_coldplay_-_up_and_up_mxubrh.mp3'})

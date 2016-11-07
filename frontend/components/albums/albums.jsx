@@ -13,6 +13,7 @@ class Albums extends React.Component {
     super(props)
     this.renderSongs = this.renderSongs.bind(this);
     this.playSong = this.playSong.bind(this);
+    this.addSongToQue = this.addSongToQue.bind(this);
   }
 
   componentDidMount(){
@@ -26,6 +27,12 @@ class Albums extends React.Component {
     };
   }
 
+  addSongToQue(song){
+    return (e) => {
+      return this.props.addSongToQue(song)
+    }
+  }
+
   renderSongs(){
     if(this.props.songs){
       return this.props.songs.map(song =>
@@ -36,7 +43,7 @@ class Albums extends React.Component {
 
           <div className="buttons-on-songs">
             <i className="material-icons" onClick={this.playSong(song)}>play_circle_outline</i>
-            <i className="material-icons">playlist_add</i>
+            <i className="material-icons" onClick={this.addSongToQue(song)}>playlist_add</i>
           </div>
         </li>)
     }
@@ -45,9 +52,13 @@ class Albums extends React.Component {
   render(){
     let album_art_url = '';
     let album_name = '';
+    let artist_name = '';
     if(this.props.album){
       album_art_url = this.props.album.album_art_url;
       album_name = this.props.album.name;
+      if (this.props.album.artist){
+        artist_name = this.props.album.artist.name;
+      }
     }
     return (
       <div className="albums-showpage-container">
@@ -55,7 +66,7 @@ class Albums extends React.Component {
         <div className="albums-showpage-right-column">
           <div className="album-art-container-album-showpage" style={albumStyle(album_art_url)}>
           </div>
-          <div className="albums-showpage-album-name">{album_name}</div>
+          <div className="albums-showpage-album-name">{`${album_name} - ${artist_name}`}</div>
         </div>
 
         <div className="song-list-container">
