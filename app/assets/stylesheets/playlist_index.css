@@ -1,0 +1,22 @@
+.playlist-index-container{
+  display: flex;
+  flex-direction: column;
+  padding-top: 12vh;
+}
+
+.playlist-index-container > h1 {
+  padding-top: 3vh;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 32px;
+  margin: 20px;
+  background:black;
+  color: white;
+  text-align: center;
+  opacity: 0.7;
+}
+
+.playlists-container{
+  padding: 5vh 0 0 0;
+  display: flex;
+  list-style: none;
+}

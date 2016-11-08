@@ -8,6 +8,7 @@ import SignupFormContainer from './session_forms/signup_form_container';
 import SplashContainer from './splash/splash_container';
 import UserAccountContainer from './user_account/user_account_container';
 import AlbumsContainer from './albums/albums_container';
+import PlaylistsContainer from './playlists/playlists_container';
 
 
 const _redirectIfLoggedIn = (nextState, replace) => {
@@ -24,6 +25,7 @@ const Root = ({ store }) => (
         <IndexRoute component={SplashContainer}/>
         <Route path="login" component={LoginFormContainer} onEnter={_redirectIfLoggedIn}></Route>
         <Route path="signup" component={SignupFormContainer} onEnter={_redirectIfLoggedIn}></Route>
+        <Route path="explore" component={PlaylistsContainer}></Route>
         <Route path="albums/:album_id" component={AlbumsContainer}></Route>
       </Route>
       <Route path="/users/:user_id" component={UserAccountContainer}></Route>

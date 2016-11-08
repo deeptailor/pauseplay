@@ -31,7 +31,7 @@ const currentUserNotNull = (user, logout) => {
         </div>
 
         <div className="nav-bar-center-tabs">
-          <Link to={`albums`} className="nav-bar-explore">Explore</Link>
+          <Link to={`explore`} className="nav-bar-explore">Explore</Link>
         </div>
 
         <div className='login-signup'>
