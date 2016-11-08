@@ -1,6 +1,5 @@
 .playlist-showpage-container{
   display:flex;
-  /*flex-direction: column;*/
   min-height: 100vh;
   justify-content: flex-end;
   align-items: center;

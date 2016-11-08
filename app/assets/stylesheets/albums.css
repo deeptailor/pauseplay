@@ -27,7 +27,8 @@
 
 .song-list-container{
   margin: 10vh 5vh;
-  display flex;
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
@@ -89,6 +90,7 @@
 .albums-showpage-right-column{
   height:100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   flex-direction: column;
