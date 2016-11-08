@@ -80,12 +80,14 @@ class Albums extends React.Component {
         </div>
 
         <div className="song-list-container">
-          <h2>Songs</h2>
+          <div className="song-list-header">
+            <h2>Songs</h2>
             <div className="add-all-songs-to-que" onClick={this.addAllSongsToQue(this.props.songs)}>
               <i className="material-icons">play_arrow</i>
               &nbsp;
               <div>Play All</div>
             </div>
+          </div>
           <ol className="song-list-ol">
             {this.renderSongs()}
           </ol>

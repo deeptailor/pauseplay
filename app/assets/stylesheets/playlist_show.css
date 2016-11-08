@@ -41,7 +41,7 @@
   color: white;
   border-radius: 8px;
   width: 16%;
-  margin: 5px 0 10px 2px;
+  margin: 0 4px 0 0;
   padding: 4px 5px 4px 0;
   padding-left: 0;
 }
@@ -49,4 +49,18 @@
 .add-all-songs-to-que:hover{
   cursor: pointer;
   color: #3cff00;
+}
+
+.song-list-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.song-list-header > h2 {
+  font-size: 24px;
+  margin: 0 0 0 4px;
 }

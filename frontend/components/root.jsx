@@ -19,6 +19,13 @@ const _redirectIfLoggedIn = (nextState, replace) => {
   }
 }
 
+const _redirectIfNotLoggedIn = (nextState, replace) => {
+  const currentUser = store.getState().session.currentUser;
+  if (!currentUser) {
+    replace('/login')
+  }
+}
+
 const Root = ({ store }) => (
   <Provider store={store}>
     <Router history={hashHistory}>
@@ -26,9 +33,9 @@ const Root = ({ store }) => (
         <IndexRoute component={SplashContainer}/>
         <Route path="login" component={LoginFormContainer} onEnter={_redirectIfLoggedIn}></Route>
         <Route path="signup" component={SignupFormContainer} onEnter={_redirectIfLoggedIn}></Route>
-        <Route path="playlists" component={PlaylistsContainer}></Route>
+        <Route path="playlists" component={PlaylistsContainer} onEnter={_redirectIfNotLoggedIn}></Route>
         <Route path="albums/:album_id" component={AlbumsContainer}></Route>
-        <Route path="playlists/:playlist_id" component={PlaylistShowContainer}></Route>
+        <Route path="playlists/:playlist_id" component={PlaylistShowContainer} onEnter={_redirectIfNotLoggedIn}></Route>
       </Route>
       <Route path="/users/:user_id" component={UserAccountContainer}></Route>
     </Router>
