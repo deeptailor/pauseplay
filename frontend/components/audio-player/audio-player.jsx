@@ -13,7 +13,8 @@ class AudioPlayer extends React.Component{
       loaded: 0,
       loop: false,
       que: [],
-      queLength: 0
+      queLength: 0,
+      queStyle: {display: 'none'}
     };
     this.togglePlayPauseAction = this.togglePlayPauseAction.bind(this);
     this.updatePlaybar = this.updatePlaybar.bind(this);
@@ -21,10 +22,12 @@ class AudioPlayer extends React.Component{
     this.togglePlayPauseButton = this.togglePlayPauseButton.bind(this);
     this.toggleLoop = this.toggleLoop.bind(this);
     this.playNextSongInQue = this.playNextSongInQue.bind(this);
+    this.queList = this.queList.bind(this)
+    this.toggleQueStyle = this.toggleQueStyle.bind(this)
   }
 
   componentWillReceiveProps(nextProps){
-    if(nextProps.currentSong.audio_url){
+    if(nextProps.currentSong.audio_url && nextProps.currentSong.audio_url !== this.state.currentSong){
       this.setState({
         currentSong: nextProps.currentSong.audio_url,
         playing: true
@@ -89,12 +92,28 @@ toggleLoopColor(){
 }
 
 playNextSongInQue(){
-  if(this.props.que.length !== 0){
+  if(this.props.que.length > 0){
     this.props.addToCurrentSongFromQue();
-    this.setState({queLength: this.state.que.slice(1), progress: 0})
+    this.setState({queLength: this.state.que.slice(1), progress: 0, playing: true})
   }
   else{
     this.setState({que: [], queLength: 0, playing: false, progress: 0, currentSong: ''})
+  }
+}
+
+queList(){
+  if(this.state.que.length > 0){
+    return this.state.que.map((song,i) => <li key={`que-${i}`}>{song.title}</li>)
+  }else{
+    return(<p>Add Songs To Que</p>)
+  }
+}
+
+toggleQueStyle(){
+  if(this.state.queStyle.display !== 'none'){
+    this.setState({queStyle:{display:'none'}});
+  }else{
+    this.setState({queStyle:{display:'block'}});
   }
 }
 
@@ -129,9 +148,16 @@ render(){
       <div className="audio-bar-options">
         <i className="material-icons" onClick={this.toggleLoop} style={this.toggleLoopColor()}>loop</i>
       </div>
-      <div className="audio-que">
+
+      <div className="audio-que" onClick={this.toggleQueStyle}>
         <p>{this.state.que.length}</p>
+        <div className="que-list" style={this.state.queStyle}>
+          <h3>Your Cue:</h3>
+          {this.queList()}
+        </div>
       </div>
+
+
     </div>
     )
   }

@@ -88,4 +88,33 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 12px;
   margin-left: 20px;
+  position: relative;
+}
+.audio-que:hover{
+  cursor: pointer;
+}
+
+.que-list{
+  display: none;
+  list-style: circle;
+  position: absolute;
+  background: white;
+  min-width: 10vw;
+  min-height: 20vh;
+  max-height: 20vh;
+  top: -22.5vh;
+  left: -9.3vw;
+  border: 1px solid black;
+  border-radius: 5px;
+  color: black;
+  font-family: 'Montserrat', sans-serif;
+  text-align: left;
+  padding: 5px;
+  overflow: scroll;
+}
+
+.que-list > h3 {
+  text-align: center;
+  border-bottom: 1px solid black;
+  margin-bottom: 5px;
 }

@@ -67,7 +67,7 @@ const SongReducer = (state = _nullSongInfo, action) => {
       return newState;
 
     case ADD_TO_CURRENT_SONG_FROM_QUE:
-      newState.currentSong = newState.que.pop()
+      newState.currentSong = newState.que.shift()
       return newState;
 
     default:
