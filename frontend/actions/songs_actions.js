@@ -11,6 +11,7 @@ export const RECEIVE_ALBUM = "RECEIVE_ALBUM";
 export const RECEIVE_SONGS = "RECEIVE_SONGS";
 export const ADD_SONG_TO_QUE = "ADD_SONG_TO_QUE";
 export const ADD_TO_CURRENT_SONG_FROM_QUE = "ADD_TO_CURRENT_SONG_FROM_QUE";
+export const ADD_ALL_SONGS_TO_QUE = "ADD_ALL_SONGS_TO_QUE";
 
 export const PLAY_SONG = "PLAY_SONG";
 
@@ -79,3 +80,8 @@ export const addSongToQue = (song) => ({
 export const addToCurrentSongFromQue = () => ({
   type: ADD_TO_CURRENT_SONG_FROM_QUE
 });
+
+export const addAllSongsToQue = (songs) => ({
+  type: ADD_ALL_SONGS_TO_QUE,
+  songs: songs
+})

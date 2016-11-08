@@ -1,4 +1,4 @@
-json.extract! @playlist, :id, :title, :description, :owner_id, :public
+json.extract! @playlist, :id, :title, :description, :owner_id, :public, :playlist_image_url
 
 json.owner do
   json.username @owner.username

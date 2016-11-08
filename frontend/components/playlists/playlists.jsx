@@ -19,7 +19,7 @@ class Playlists extends React.Component {
   }
 
   routerPush(id){
-    return () => this.props.router.push(`albums/${id}`);
+    return () => this.props.router.push(`playlists/${id}`);
   }
 
   renderPlaylists(){

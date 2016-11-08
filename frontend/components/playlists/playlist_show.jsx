@@ -1,16 +1,14 @@
 import React from 'react';
 
-const albumStyle = (imgUrl) =>({
+const playlistStyle = (imgUrl) =>({
   backgroundImage: 'url(' + imgUrl + ')',
   backgroundPosition: 'center',
   backgroundSize: 'contain'
 })
 
-
-
-class Albums extends React.Component {
+class PlaylistShow extends React.Component {
   constructor(props){
-    super(props)
+    super(props);
     this.renderSongs = this.renderSongs.bind(this);
     this.playSong = this.playSong.bind(this);
     this.addSongToQue = this.addSongToQue.bind(this);
@@ -18,7 +16,7 @@ class Albums extends React.Component {
   }
 
   componentDidMount(){
-    this.props.fetchAlbum(this.props.params.album_id)
+    this.props.fetchPlaylist(this.props.params.playlist_id)
   }
 
   playSong(song){
@@ -41,8 +39,8 @@ class Albums extends React.Component {
   }
 
   renderSongs(){
-    if(this.props.songs){
-      return this.props.songs.map(song =>
+    if(this.props.playlist.songs){
+      return this.props.playlist.songs.map(song =>
         <li key= {`song-${song.id}`} className="song-title-container">
           <div className="song-title">
             {song.title}
@@ -60,40 +58,45 @@ class Albums extends React.Component {
   }
 
   render(){
-    let album_art_url = '';
-    let album_name = '';
-    let artist_name = '';
-    if(this.props.album){
-      album_art_url = this.props.album.album_art_url;
-      album_name = this.props.album.name;
-      if (this.props.album.artist){
-        artist_name = this.props.album.artist.name;
+    let playlist_art_url = '';
+    let playlist_name = '';
+    let owner_name = '';
+    let playlist_description = '';
+    if(this.props.playlist.id){
+      playlist_art_url = this.props.playlist.playlist_image_url;
+      playlist_name = this.props.playlist.title;
+      playlist_description = this.props.playlist.description;
+      if (this.props.playlist.owner){
+        owner_name = this.props.playlist.owner.username
       }
     }
     return (
-      <div className="albums-showpage-container">
+      <div className="playlist-showpage-container">
 
         <div className="albums-showpage-right-column">
-          <div className="album-art-container-album-showpage" style={albumStyle(album_art_url)}>
+          <div className="playlist-showpage-playlist-name">{`${playlist_name} - ${owner_name}`}</div>
+          <div className="album-art-container-album-showpage" style={playlistStyle(playlist_art_url)}>
           </div>
-          <div className="albums-showpage-album-name">{`${album_name} - ${artist_name}`}</div>
+          <div className="playlist-description">
+            <h3>Description</h3>
+            <div className="description-text">{playlist_description}</div>
+          </div>
         </div>
 
         <div className="song-list-container">
           <h2>Songs</h2>
-            <div className="add-all-songs-to-que" onClick={this.addAllSongsToQue(this.props.songs)}>
-              <i className="material-icons">play_arrow</i>
-              &nbsp;
-              <div>Play All</div>
-            </div>
+          <div className="add-all-songs-to-que" onClick={this.addAllSongsToQue(this.props.playlist.songs)}>
+            <i className="material-icons">play_arrow</i>
+            &nbsp;
+            <div>Play All</div>
+          </div>
           <ol className="song-list-ol">
             {this.renderSongs()}
           </ol>
         </div>
-
       </div>
     )
   }
 }
 
-export default Albums;
+export default PlaylistShow;

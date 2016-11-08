@@ -1,5 +1,5 @@
 import {RECEIVE_ALL_ARTISTS, RECEIVE_ARTIST, RECEIVE_ALBUMS, RECEIVE_ALBUM, RECEIVE_SONGS,
-  PLAY_SONG, ADD_SONG_TO_QUE, ADD_TO_CURRENT_SONG_FROM_QUE} from '../actions/songs_actions'
+  PLAY_SONG, ADD_SONG_TO_QUE, ADD_TO_CURRENT_SONG_FROM_QUE, ADD_ALL_SONGS_TO_QUE} from '../actions/songs_actions'
 import merge from 'lodash/merge';
 
 const _nullSongInfo = ({
@@ -68,6 +68,10 @@ const SongReducer = (state = _nullSongInfo, action) => {
 
     case ADD_TO_CURRENT_SONG_FROM_QUE:
       newState.currentSong = newState.que.shift()
+      return newState;
+
+    case ADD_ALL_SONGS_TO_QUE:
+      newState.que = newState.que.concat(action.songs);
       return newState;
 
     default:

@@ -1,0 +1,53 @@
+.playlist-showpage-container{
+  display:flex;
+  /*flex-direction: column;*/
+  min-height: 100vh;
+  justify-content: flex-end;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+.playlist-description{
+  margin-top: 2vh;
+  padding: 1vh;
+  border: 1px solid black;
+  width: 35vh;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.playlist-description > h3 {
+  margin-bottom: 1vw;
+  border-bottom: 1px solid black;
+  text-align: center;
+}
+
+.playlist-showpage-playlist-name{
+  border-radius: 5px;
+  border: 1px solid black;
+  font-size: 22px;
+  padding: 0.8vh;
+  min-width: 100%;
+  text-align: center;
+}
+
+.add-all-songs-to-que{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: black;
+  opacity: 0.7;
+  color: white;
+  border-radius: 8px;
+  width: 16%;
+  margin: 5px 0 10px 2px;
+  padding: 4px 5px 4px 0;
+  padding-left: 0;
+}
+
+.add-all-songs-to-que:hover{
+  cursor: pointer;
+  color: #3cff00;
+}

@@ -27,6 +27,8 @@
 
 .song-list-container{
   margin: 10vh 5vh;
+  display flex;
+  align-items: center;
 }
 
 .song-list-container > h2 {
@@ -38,18 +40,43 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px;
+  padding: 0 5px ;
   margin: 2px;
   border: 1px solid black;
   border-radius: 10px;
   transition: background-color 1s, color 1s;
   min-width: 40vw;
+  position: relative;
 }
 
 .song-title-container:hover{
   color: white;
   background-color: black;
   opacity: 0.7;
+}
+
+.add-song-to-que{
+  position: absolute;
+  padding: 2px;
+  right: -15vh;;
+  bottom: 0;
+  background-color: black;
+  border: 1px solid black;
+  border-radius: 5px;
+  color: white;
+  font-size: 12px;
+  display: none;
+}
+
+.add-song-que:hover + .add-song-to-que{
+  display:block;
+}
+.add-song-que{
+  max-height: 32px;
+}
+
+.play-song{
+  max-height: 32px;
 }
 
 .buttons-on-songs{

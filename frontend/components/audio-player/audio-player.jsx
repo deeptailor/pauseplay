@@ -34,6 +34,10 @@ class AudioPlayer extends React.Component{
       });
     }
     if(nextProps.que.length !== 0){
+      if(!nextProps.currentSong.audio_url){
+        this.props.addToCurrentSongFromQue();
+        this.setState({queLength: this.state.que.slice(1), progress: 0, playing: true})
+      }
       this.setState({que: nextProps.que, queLength: nextProps.que.length})
     }
   }
@@ -152,7 +156,7 @@ render(){
       <div className="audio-que" onClick={this.toggleQueStyle}>
         <p>{this.state.que.length}</p>
         <div className="que-list" style={this.state.queStyle}>
-          <h3>Your Cue:</h3>
+          <h3>Your Que:</h3>
           {this.queList()}
         </div>
       </div>
