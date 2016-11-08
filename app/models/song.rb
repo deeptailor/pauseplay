@@ -16,4 +16,6 @@ class Song < ActiveRecord::Base
   validates :title, :album_id, :audio_url, presence:true
 
   belongs_to :album
+
+  has_many :playlist_songs, dependent: :destroy
 end

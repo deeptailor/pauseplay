@@ -4,7 +4,7 @@ import configureStore from './store/store';
 import Root from './components/root'
 
 import { signup, login, logout } from './actions/session_actions'
-import { fetchAllArtists, fetchArtist, fetchAlbums, fetchAlbum, fetchSongs } from './actions/songs_actions'
+import { fetchPlaylists, fetchPlaylist, fetchFollowedPlaylists, fetchOwnedPlaylists } from './actions/playlist_actions'
 
 
 
@@ -21,12 +21,10 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
 
-
-  window.fetchAllArtists = fetchAllArtists;
-  window.fetchArtist = fetchArtist;
-  window.fetchAlbums = fetchAlbums;
-  window.fetchAlbum = fetchAlbum;
-  window.fetchSongs = fetchSongs;
+  window.fetchPlaylists = fetchPlaylists;
+  window.fetchPlaylist = fetchPlaylist;
+  window.fetchFollowedPlaylists = fetchFollowedPlaylists;
+  window.fetchOwnedPlaylists = fetchOwnedPlaylists;
 
   window.store = store;
 

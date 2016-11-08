@@ -23,7 +23,14 @@ class User < ActiveRecord::Base
   after_initialize :ensure_session_token
   before_validation :ensure_session_token_uniqueness
 
+  has_many :playlists,
+  class_name: :Playlist,
+  primary_key: :id,
+  foreign_key: :owner_id,
+  dependent: :destroy
 
+  has_many :playlist_follows,
+  dependent: :destroy
 
 
   def password=(password)
