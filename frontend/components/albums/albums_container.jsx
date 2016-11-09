@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import Albums from './albums';
 import { fetchAlbum, playSong, addSongToQue, addAllSongsToQue } from '../../actions/songs_actions';
-import { fetchOwnedPlaylists } from '../../actions/playlist_actions'
+import { fetchOwnedPlaylists, addSongToPlaylist, clearPlaylistSuccess } from '../../actions/playlist_actions'
 
 const mapStateToProps = ({ songInfo, session, playlists }) => {
   return ({
@@ -10,7 +10,8 @@ const mapStateToProps = ({ songInfo, session, playlists }) => {
     currentSong: songInfo.currentSong,
     playing: songInfo.playing,
     currentUser: session.currentUser,
-    playlists: Object.keys(playlists.playlists).map(id => playlists.playlists[id])
+    playlists: Object.keys(playlists.playlists).map(id => playlists.playlists[id]),
+    addSongSuccess: playlists.success
   });
 };
 
@@ -20,7 +21,9 @@ const mapDispatchToProps = (dispatch) => {
     playSong: (song) => dispatch(playSong(song)),
     addSongToQue: (song) => dispatch(addSongToQue(song)),
     addAllSongsToQue: (songs) => dispatch(addAllSongsToQue(songs)),
-    fetchOwnedPlaylists: (id) => dispatch(fetchOwnedPlaylists(id))
+    fetchOwnedPlaylists: (id) => dispatch(fetchOwnedPlaylists(id)),
+    addSongToPlaylist: (playlist_id, song_id) => dispatch(addSongToPlaylist({playlist_id: playlist_id, song_id: song_id})),
+    clearPlaylistSuccess: () => dispatch(clearPlaylistSuccess())
   });
 };
 

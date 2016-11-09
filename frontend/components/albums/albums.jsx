@@ -12,7 +12,7 @@ class Albums extends React.Component {
   constructor(props){
     super(props)
 
-    this.state = {usersPlaylistFormDisplay: 'none', selectedSongId:0}
+    this.state = {usersPlaylistFormDisplay: 'none', selectedSongId:0, success: []}
 
     this.renderSongs = this.renderSongs.bind(this);
     this.renderAddToPlaylist = this.renderAddToPlaylist.bind(this);
@@ -22,9 +22,11 @@ class Albums extends React.Component {
 
     this.addSongToQue = this.addSongToQue.bind(this);
     this.addAllSongsToQue = this.addAllSongsToQue.bind(this);
+    this.addSongToPlaylist = this.addSongToPlaylist.bind(this);
 
     this.toggleOnPlaylistAddForm = this.toggleOnPlaylistAddForm.bind(this);
     this.toggleOffPlaylistAddForm = this.toggleOffPlaylistAddForm.bind(this);
+    this.toggleCheckMark = this.toggleCheckMark.bind(this);
   }
 
   componentDidMount(){
@@ -34,9 +36,25 @@ class Albums extends React.Component {
     }
   }
 
+  componentWillReceiveProps(newProps){
+    if(newProps.addSongSuccess.length > 0){
+      this.setState({success: newProps.addSongSuccess})
+    }
+  }
+
+  componentWillUnmount(){
+    this.props.clearPlaylistSuccess();
+  }
+
   fetchOwnedPlaylists(id){
     if(this.props.currentUser){
       this.props.fetchOwnedPlaylists(id)
+    }
+  }
+
+  addSongToPlaylist(playlist_id){
+    return (e) => {
+      this.props.addSongToPlaylist(playlist_id, this.state.selectedSongId)
     }
   }
 
@@ -59,9 +77,14 @@ class Albums extends React.Component {
     }
   }
 
-  toggleOnPlaylistAddForm(){
-    if(this.state.usersPlaylistFormDisplay === "none"){
-      this.setState({usersPlaylistFormDisplay: "block"})
+  toggleOnPlaylistAddForm(songId){
+    return e => {
+      if(this.state.usersPlaylistFormDisplay === "none"){
+        this.setState({usersPlaylistFormDisplay: "block", selectedSongId: songId})
+      }
+      else{
+        this.setState({success: []})
+      }
     }
   }
 
@@ -71,24 +94,34 @@ class Albums extends React.Component {
     }
   }
 
+  toggleCheckMark(){
+    if(this.state.success.length > 0){
+      return (
+        <div className="check-mark">
+          <i className="material-icons">playlist_add_check</i>
+        </div>
+    )}
+  }
+
   renderUsersPlaylists(){
     if (this.props.playlists.length > 0){
       return (
         <div className="users-playlists-container" style={{display:this.state.usersPlaylistFormDisplay}}>
           <ul className="users-playlists-ul">
+            {this.toggleCheckMark()}
             <div className="close-button" onClick={this.toggleOffPlaylistAddForm}><i className="material-icons">close</i></div>
             <h3>Your Playlists</h3>
-            {this.props.playlists.map((playlist, i) => <li key={`userPlaylist-${i}`}>{playlist.title}</li>)}
+            {this.props.playlists.map((playlist, i) => <li onClick={this.addSongToPlaylist(playlist.id)} key={`userPlaylist-${i}`} className="users-playlist-li">{playlist.title}</li>)}
           </ul>
         </div>
       )
     }
   }
 
-  renderAddToPlaylist(){
+  renderAddToPlaylist(songId){
     if (this.props.currentUser){
       return (
-        <div className="add-song-to-playlist" onClick={this.toggleOnPlaylistAddForm}>
+        <div className="add-song-to-playlist" onClick={this.toggleOnPlaylistAddForm(songId)}>
           <i className="material-icons">playlist_add</i>
           <div className="add-song-to-playlist-popup">Add Song To Playlist</div>
        </div>
@@ -108,7 +141,7 @@ class Albums extends React.Component {
 
           <div className="buttons-on-songs">
             <div className="play-song"><i className="material-icons" onClick={this.playSong(song)}>play_circle_outline</i></div>
-            {this.renderAddToPlaylist()}
+            {this.renderAddToPlaylist(song.id)}
             <div className="add-song-que"><i className="material-icons" onClick={this.addSongToQue(song)}>queue_music</i></div>
             <div className="add-song-to-que">Add Song To Queue</div>
           </div>

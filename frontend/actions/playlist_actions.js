@@ -9,8 +9,11 @@ export const RECEIVE_FOLLOWED_PLAYLISTS = 'RECEIVE_FOLLOWED_PLAYLISTS';
 export const RECEIVE_OWNED_PLAYLISTS = 'RECEIVE_OWNED_PLAYLISTS';
 export const RECEIVE_PLAYLIST_ERRORS = 'RECEIVE_PLAYLIST_ERRORS';
 export const CLEAR_PLAYLIST_ERRORS = 'CLEAR_PLAYLIST_ERRORS';
+export const CLEAR_PLAYLIST_SUCCESS = 'CLEAR_PLAYLIST_SUCCESS';
 
 export const CREATE_PLAYLIST = 'CREATE_PLAYLIST';
+export const ADD_SONG_TO_PLAYLIST = 'ADD_SONG_TO_PLAYLIST';
+export const RECEIVE_ADD_SONG_SUCCESS = 'RECEIVE_ADD_SONG_SUCCESS';
 
 
 export const fetchPlaylists = () => ({
@@ -65,4 +68,18 @@ export const receivePlaylistErrors = (errors) => ({
 
 export const clearPlaylistErrors = () => ({
   type: CLEAR_PLAYLIST_ERRORS
+})
+
+export const addSongToPlaylist = (params) => ({
+  type: ADD_SONG_TO_PLAYLIST,
+  params: params
+})
+
+export const receiveAddSongSuccess = (success) => ({
+  type: RECEIVE_ADD_SONG_SUCCESS,
+  success: success
+})
+
+export const clearPlaylistSuccess = () => ({
+  type: CLEAR_PLAYLIST_SUCCESS
 })

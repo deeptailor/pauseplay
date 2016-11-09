@@ -4,7 +4,7 @@ import configureStore from './store/store';
 import Root from './components/root'
 
 import { signup, login, logout } from './actions/session_actions'
-import { fetchPlaylists, fetchPlaylist, fetchFollowedPlaylists, fetchOwnedPlaylists, createPlaylist } from './actions/playlist_actions'
+import { fetchPlaylists, fetchPlaylist, fetchFollowedPlaylists, fetchOwnedPlaylists, createPlaylist, addSongToPlaylist } from './actions/playlist_actions'
 
 
 
@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.fetchFollowedPlaylists = fetchFollowedPlaylists;
   window.fetchOwnedPlaylists = fetchOwnedPlaylists;
   window.createPlaylist = createPlaylist;
+  window.addSongToPlaylist = addSongToPlaylist;
 
   window.store = store;
 

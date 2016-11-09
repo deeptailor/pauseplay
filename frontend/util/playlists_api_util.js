@@ -46,3 +46,13 @@ export const createPlaylist = (data, success, error) => {
     error: error
   })
 };
+
+export const requestAddSongToPlaylist = (data, success, error) => {
+  $.ajax({
+    method: 'post',
+    url: 'api/playlist_songs',
+    data: {playlist_songs: data},
+    success: success,
+    error: error
+  });
+}

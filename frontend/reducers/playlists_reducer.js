@@ -1,10 +1,12 @@
-import {RECEIVE_PLAYLISTS, RECEIVE_PLAYLIST, RECEIVE_OWNED_PLAYLISTS, RECEIVE_FOLLOWED_PLAYLISTS, RECEIVE_PLAYLIST_ERRORS, CLEAR_PLAYLIST_ERRORS} from '../actions/playlist_actions'
+import {RECEIVE_PLAYLISTS, RECEIVE_PLAYLIST, RECEIVE_OWNED_PLAYLISTS, RECEIVE_FOLLOWED_PLAYLISTS,
+  RECEIVE_PLAYLIST_ERRORS, CLEAR_PLAYLIST_ERRORS, RECEIVE_ADD_SONG_SUCCESS, CLEAR_PLAYLIST_SUCCESS} from '../actions/playlist_actions'
 
 import merge from 'lodash/merge';
 
 const _nullPlaylistInfo = ({
   playlists: {},
-  errors: []
+  errors: [],
+  success: []
 });
 
 const PlaylistsReducer = (state = _nullPlaylistInfo, action) => {
@@ -35,6 +37,14 @@ const PlaylistsReducer = (state = _nullPlaylistInfo, action) => {
 
     case CLEAR_PLAYLIST_ERRORS:
       newState.errors = [];
+      return newState;
+
+    case CLEAR_PLAYLIST_SUCCESS:
+      newState.success = [];
+      return newState;
+
+    case RECEIVE_ADD_SONG_SUCCESS:
+      newState.success = action.success
       return newState;
 
     default:
