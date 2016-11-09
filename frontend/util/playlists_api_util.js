@@ -28,11 +28,20 @@ export const requestFollowedPlaylists = (user_id, success, error) => {
 };
 
 export const requestOwnedPlaylists = (owner_id, success, error) => {
-  console.log('im in ajax land')
   $.ajax({
     method: 'get',
     url: 'api/playlists',
     data: {playlist:{owner_id: owner_id}},
+    success: success,
+    error: error
+  })
+};
+
+export const createPlaylist = (data, success, error) => {
+  $.ajax({
+    method: 'post',
+    url: '/api/playlists',
+    data: {playlist:data},
     success: success,
     error: error
   })

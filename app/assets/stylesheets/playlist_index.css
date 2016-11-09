@@ -22,5 +22,7 @@
 .playlists-container{
   padding: 5vh 0 0 0;
   display: flex;
+  justify-content: center;
   list-style: none;
+  flex-wrap: wrap;
 }

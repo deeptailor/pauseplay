@@ -13,6 +13,7 @@ class PlaylistShow extends React.Component {
     this.playSong = this.playSong.bind(this);
     this.addSongToQue = this.addSongToQue.bind(this);
     this.addAllSongsToQue = this.addAllSongsToQue.bind(this);
+    this.renderSongsContainer = this.renderSongsContainer.bind(this);
   }
 
   componentDidMount(){
@@ -57,6 +58,33 @@ class PlaylistShow extends React.Component {
     }
   }
 
+  renderSongsContainer(){
+    if (this.props.playlist.songs && this.props.playlist.songs.length > 0){
+      return (
+        <div className="song-list-container">
+          <div className="song-list-header">
+            <h2>Songs</h2>
+            <div className="add-all-songs-to-que" onClick={this.addAllSongsToQue(this.props.playlist.songs)}>
+              <i className="material-icons">play_arrow</i>
+              &nbsp;
+              <div>Play All</div>
+            </div>
+          </div>
+          <ol className="song-list-ol">
+            {this.renderSongs()}
+          </ol>
+        </div>
+      )
+    }
+    else{
+      return (
+        <div className="song-list-empty">
+          <h2>Add Songs To Your Playlist</h2>
+        </div>
+      )
+    }
+  }
+
   render(){
     let playlist_art_url = '';
     let playlist_name = '';
@@ -82,20 +110,7 @@ class PlaylistShow extends React.Component {
             <div className="description-text">{playlist_description}</div>
           </div>
         </div>
-
-        <div className="song-list-container">
-          <div className="song-list-header">
-            <h2>Songs</h2>
-            <div className="add-all-songs-to-que" onClick={this.addAllSongsToQue(this.props.playlist.songs)}>
-              <i className="material-icons">play_arrow</i>
-              &nbsp;
-              <div>Play All</div>
-            </div>
-          </div>
-          <ol className="song-list-ol">
-            {this.renderSongs()}
-          </ol>
-        </div>
+        {this.renderSongsContainer()}
       </div>
     )
   }

@@ -8,6 +8,8 @@ export const RECEIVE_PLAYLIST = 'RECEIVE_PLAYLIST';
 export const RECEIVE_FOLLOWED_PLAYLISTS = 'RECEIVE_FOLLOWED_PLAYLISTS';
 export const RECEIVE_OWNED_PLAYLISTS = 'RECEIVE_OWNED_PLAYLISTS';
 
+export const CREATE_PLAYLIST = 'CREATE_PLAYLIST';
+
 
 export const fetchPlaylists = () => ({
   type: FETCH_PLAYLISTS
@@ -48,3 +50,8 @@ export const receiveOwnedPlaylists = (playlists) => ({
   type: RECEIVE_OWNED_PLAYLISTS,
   playlists: playlists
 });
+
+export const createPlaylist = (playlist) => ({
+  type: CREATE_PLAYLIST,
+  playlist: playlist
+})

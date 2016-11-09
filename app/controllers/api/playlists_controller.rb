@@ -1,5 +1,27 @@
 class Api::PlaylistsController < ApplicationController
 
+  def create
+
+    if playlist_params[:playlist_image_url] == ''
+      playlist_image_url = "http://res.cloudinary.com/deeptailor/image/upload/c_scale,h_300,o_19,w_300/v1478317876/favicon_fpu1ou.png"
+    else
+      playlist_image_url = playlist_params[:playlist_image_url]
+    end
+    @playlist = Playlist.new({
+      owner_id: playlist_params[:owner_id],
+      title: playlist_params[:title],
+      description: playlist_params[:description],
+      public: playlist_params[:public],
+      playlist_image_url: playlist_image_url
+      });
+    if @playlist.save;
+      @owner = @playlist.owner
+      render :show
+    else
+      render json: @playlist.errors.full_messages, status: 422
+    end
+  end
+
   def index
     if(params[:playlist])
       if(params[:playlist][:owner_id])
@@ -31,6 +53,6 @@ class Api::PlaylistsController < ApplicationController
   private
 
   def playlist_params
-    params.require(:playlist).permit(:name, :owner_id, :user_id)
+    params.require(:playlist).permit(:name, :owner_id, :user_id, :title, :description, :public, :playlist_image_url)
   end
 end
