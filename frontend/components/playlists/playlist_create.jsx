@@ -13,6 +13,10 @@ class PlaylistCreate extends React.Component {
     this.redirectIfPlaylistCreated();
   }
 
+  componentWillUnmount(){
+    this.props.clearErrors();
+  }
+
   update(field){
     return e => this.setState({
       [field]:e.currentTarget.value

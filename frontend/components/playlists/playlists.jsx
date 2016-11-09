@@ -12,6 +12,7 @@ class Playlists extends React.Component {
     super(props);
     this.renderPlaylists = this.renderPlaylists.bind(this);
     this.routerPush = this.routerPush.bind(this);
+    this.createPlaylistRouter = this.createPlaylistRouter.bind(this);
   }
 
   componentDidMount(){
@@ -20,6 +21,10 @@ class Playlists extends React.Component {
 
   routerPush(id){
     return () => this.props.router.push(`playlists/${id}`);
+  }
+
+  createPlaylistRouter(){
+    this.props.router.push(`playlists/create`)
   }
 
   renderPlaylists(){
@@ -42,6 +47,8 @@ class Playlists extends React.Component {
     return (
       <div className="playlist-index-container">
         <h1>Explore Playlists</h1>
+        &nbsp;
+        <div className="create-playlist" onClick={this.createPlaylistRouter}>Create Playlist &nbsp;<i className="material-icons">playlist_add</i></div>
         <div className="playlists-container">
           {this.renderPlaylists()}
         </div>

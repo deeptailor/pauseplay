@@ -7,6 +7,7 @@ class Api::PlaylistsController < ApplicationController
     else
       playlist_image_url = playlist_params[:playlist_image_url]
     end
+
     @playlist = Playlist.new({
       owner_id: playlist_params[:owner_id],
       title: playlist_params[:title],

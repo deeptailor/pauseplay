@@ -3,6 +3,7 @@ import {
   receivePlaylist,
   receiveFollowedPlaylists,
   receiveOwnedPlaylists,
+  receivePlaylistErrors,
   FETCH_PLAYLISTS,
   FETCH_PLAYLIST,
   FETCH_FOLLOWED_PLAYLISTS,
@@ -10,7 +11,6 @@ import {
   CREATE_PLAYLIST
 } from '../actions/playlist_actions';
 
-import {receiveErrors} from '../actions/session_actions';
 import { requestPlaylists, requestPlaylist, requestOwnedPlaylists, requestFollowedPlaylists, createPlaylist } from '../util/playlists_api_util';
 
 const PlaylistsMiddleware = ({getState, dispatch}) => (next) => (action) => {
@@ -18,7 +18,7 @@ const PlaylistsMiddleware = ({getState, dispatch}) => (next) => (action) => {
   const receivePlaylistSuccessCb = (playlist) => dispatch(receivePlaylist(playlist));
   const receiveFollowedPlaylistsSuccessCb = (playlists) => dispatch(receiveFollowedPlaylists(playlists));
   const receiveOwnedPlaylistsSuccessCb = (playlists) => dispatch(receiveOwnedPlaylists(playlists));
-  const errorsCb = (errors) => dispatch(receiveErrors(errors.responseJSON));
+  const errorsCb = (errors) => dispatch(receivePlaylistErrors(errors.responseJSON));
 
   switch (action.type){
 

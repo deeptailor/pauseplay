@@ -1,11 +1,13 @@
 .playlist-index-container{
   display: flex;
   flex-direction: column;
-  padding-top: 12vh;
+  align-items: center;
+  padding-top: 13.5vh;
 }
 
 .playlist-index-container > h1 {
   padding: 1vh 0;
+  width: 100%;
   font-family: 'Montserrat', sans-serif;
   font-size: 24px;
   margin: 20px;
@@ -25,4 +27,27 @@
   justify-content: center;
   list-style: none;
   flex-wrap: wrap;
+}
+
+.create-playlist{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  padding: 3px;
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.create-playlist:hover{
+  cursor: pointer;
+  background-color: black;
+  color: white;
+}
+
+.create-playlist:hover > i{
+  color: green;
+  color: #3cff00;
 }

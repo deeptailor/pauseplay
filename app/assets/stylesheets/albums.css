@@ -61,7 +61,7 @@
 .add-song-to-que{
   position: absolute;
   padding: 2px;
-  right: -15vh;;
+  right: -17vh;;
   bottom: 0;
   background-color: black;
   border: 1px solid black;
@@ -78,15 +78,45 @@
   max-height: 32px;
 }
 
+.add-song-to-playlist{
+  max-height: 32px;
+}
+
+.add-song-to-playlist-popup{
+  position: absolute;
+  right: -18vh;
+  bottom: 0;
+  background-color: black;
+  border: 1px solid black;
+  border-radius: 5px;
+  color: white;
+  font-size: 12px;
+  display: none;
+}
+
+.add-song-to-playlist:hover .add-song-to-playlist-popup{
+  display:block;
+}
+
 .play-song{
   max-height: 32px;
 }
 
 .buttons-on-songs{
   font-size: 30px;
-  width: 10%;
+  width: 18%;
   display:flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.play-song{
+  margin-right: 5px;
+}
+
+.buttons-on-songs > div{
+  padding: 0;
+  margin-left: 0;
 }
 
 .albums-showpage-right-column{
@@ -96,4 +126,42 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.users-playlists-container{
+  position: fixed;
+  top: 11vh;
+  right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.users-playlists-ul{
+  list-style-type: none;
+  font-size: 16px;
+  background: black;
+  border: 1px solid #3cff00;
+  border-radius: 10px;
+  padding: 18px;
+  opacity: 1;
+  color: white;
+  max-width: 130px;
+  overflow: scroll;
+  position: relative;
+}
+
+.users-playlists-ul > h3 {
+  padding-bottom: 5px;
+  border-bottom: 1px solid white;
+}
+
+.users-playlists-ul > li {
+  padding: 5px 0 0 0 ;
+}
+
+.close-button{
+  position: absolute;
+  right:0;
+  top: 0;
 }

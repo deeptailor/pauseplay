@@ -7,6 +7,8 @@ export const RECEIVE_PLAYLISTS = 'RECEIVE_PLAYLISTS';
 export const RECEIVE_PLAYLIST = 'RECEIVE_PLAYLIST';
 export const RECEIVE_FOLLOWED_PLAYLISTS = 'RECEIVE_FOLLOWED_PLAYLISTS';
 export const RECEIVE_OWNED_PLAYLISTS = 'RECEIVE_OWNED_PLAYLISTS';
+export const RECEIVE_PLAYLIST_ERRORS = 'RECEIVE_PLAYLIST_ERRORS';
+export const CLEAR_PLAYLIST_ERRORS = 'CLEAR_PLAYLIST_ERRORS';
 
 export const CREATE_PLAYLIST = 'CREATE_PLAYLIST';
 
@@ -54,4 +56,13 @@ export const receiveOwnedPlaylists = (playlists) => ({
 export const createPlaylist = (playlist) => ({
   type: CREATE_PLAYLIST,
   playlist: playlist
+})
+
+export const receivePlaylistErrors = (errors) => ({
+  type: RECEIVE_PLAYLIST_ERRORS,
+  errors: errors
+});
+
+export const clearPlaylistErrors = () => ({
+  type: CLEAR_PLAYLIST_ERRORS
 })

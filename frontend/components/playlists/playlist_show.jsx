@@ -20,6 +20,12 @@ class PlaylistShow extends React.Component {
     this.props.fetchPlaylist(this.props.params.playlist_id)
   }
 
+  componentWillUnmount(){
+    if(this.props.clearErrors){
+      this.props.clearErrors();
+    }
+  }
+
   playSong(song){
     return (e) => {
       e.preventDefault();
@@ -51,8 +57,8 @@ class PlaylistShow extends React.Component {
 
           <div className="buttons-on-songs">
             <div className="play-song"><i className="material-icons" onClick={this.playSong(song)}>play_circle_outline</i></div>
-            <div className="add-song-que"><i className="material-icons" onClick={this.addSongToQue(song)}>playlist_add</i></div>
-            <div className="add-song-to-que">Add Song To Que</div>
+            <div className="add-song-que"><i className="material-icons" onClick={this.addSongToQue(song)}>queue_music</i></div>
+            <div className="add-song-to-que">Add Song To Queue</div>
           </div>
         </li>)
     }
