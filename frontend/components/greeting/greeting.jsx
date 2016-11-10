@@ -35,7 +35,7 @@ const currentUserNotNull = (user, logout) => {
         </div>
 
         <div className='login-signup'>
-        <Link to={`/users/${user.id}`} className='login'>{user.username}</Link>
+        <Link to='/' className='login'>{`${user.username}`}</Link>
         <Link to="/" onClick={logout} className='signup'>Log Out</Link>
         </div>
       </div>

@@ -1,6 +1,4 @@
 import React from 'react';
-import { withRouter } from 'react-router'
-
 
 const albumStyle = (imgUrl) =>({
   backgroundImage: 'url(' + imgUrl + ')',
@@ -8,18 +6,17 @@ const albumStyle = (imgUrl) =>({
   backgroundSize: 'contain'
 })
 
-class Playlists extends React.Component {
+class FollowedPlaylists extends React.Component {
+
   constructor(props){
     super(props);
     this.renderPlaylists = this.renderPlaylists.bind(this);
     this.routerPush = this.routerPush.bind(this);
     this.createPlaylistRouter = this.createPlaylistRouter.bind(this);
-    this.myPlaylistsRouter = this.myPlaylistsRouter.bind(this);
-    this.followedPlaylistsRouter = this.followedPlaylistsRouter.bind(this);
   }
 
-  componentDidMount(){
-    this.props.fetchPlaylists();
+  componentWillMount(){
+    this.props.fetchFollowedPlaylists(this.props.currentUser.id);
   }
 
   routerPush(id){
@@ -28,14 +25,6 @@ class Playlists extends React.Component {
 
   createPlaylistRouter(){
     this.props.router.push(`playlists/create`)
-  }
-
-  myPlaylistsRouter(){
-    this.props.router.push(`myplaylists`)
-  }
-
-  followedPlaylistsRouter(){
-    this.props.router.push(`followedplaylists`)
   }
 
   renderPlaylists(){
@@ -57,15 +46,9 @@ class Playlists extends React.Component {
   render(){
     return (
       <div className="playlist-index-container">
-        <h1>Explore Playlists</h1>
+        <h1>Followed Playlists</h1>
         &nbsp;
-
-        <div className="playlists-navigate">
-          <div className="create-playlist" onClick={this.createPlaylistRouter}>Create Playlist &nbsp;<i className="material-icons">playlist_add</i></div>
-          <div className="my-playlists" onClick={this.myPlaylistsRouter}>My Playlists</div>
-          <div className="my-playlists" onClick={this.followedPlaylistsRouter}>Followed Playlists</div>
-        </div>
-
+        <div className="create-playlist" onClick={this.createPlaylistRouter}>Create Playlist &nbsp;<i className="material-icons">playlist_add</i></div>
         <div className="playlists-container">
           {this.renderPlaylists()}
         </div>
@@ -74,4 +57,4 @@ class Playlists extends React.Component {
   }
 }
 
-export default withRouter(Playlists);
+  export default FollowedPlaylists;

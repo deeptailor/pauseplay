@@ -11,6 +11,8 @@ import AlbumsContainer from './albums/albums_container';
 import PlaylistsContainer from './playlists/playlists_container';
 import PlaylistShowContainer from './playlists/playlist_show_container';
 import PlaylistCreateContainer from './playlists/playlist_create_container';
+import MyPlaylistsContainer from './playlists/my_playlists_container';
+import FollowedPlaylistsContainer from './playlists/followed_playlists_container';
 
 
 const _redirectIfLoggedIn = (nextState, replace) => {
@@ -38,6 +40,8 @@ const Root = ({ store }) => (
         <Route path="playlists/create" component={PlaylistCreateContainer} onEnter={_redirectIfNotLoggedIn}></Route>
         <Route path="albums/:album_id" component={AlbumsContainer}></Route>
         <Route path="playlists/:playlist_id" component={PlaylistShowContainer} onEnter={_redirectIfNotLoggedIn}></Route>
+        <Route path="myplaylists" component={MyPlaylistsContainer} onEnter={_redirectIfNotLoggedIn}></Route>
+        <Route path="followedplaylists" component={FollowedPlaylistsContainer} onEnter={_redirectIfNotLoggedIn}></Route>
       </Route>
       <Route path="/users/:user_id" component={UserAccountContainer}></Route>
     </Router>

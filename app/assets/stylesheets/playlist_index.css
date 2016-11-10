@@ -35,10 +35,10 @@
   padding: 3px;
   border: 1px solid black;
   border-radius: 10px;
-  width: 15%;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 10px;
 }
 
 .create-playlist:hover{
@@ -48,6 +48,36 @@
 }
 
 .create-playlist:hover > i{
-  color: green;
+  color: #3cff00;
+}
+
+.playlists-navigate{
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.my-playlists{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  background: white;
+  color: black;
+}
+
+.my-playlists:hover{
+  cursor: pointer;
+  background-color: black;
+  color: white;
+}
+
+.my-playlists:hover > i{
   color: #3cff00;
 }
