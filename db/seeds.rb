@@ -68,7 +68,7 @@ Album.create({name:'Beauty Behind The Madness', artist_id:7, album_art_url:'http
 Album.create({name:'Micks Tape', artist_id:8, album_art_url:'https://res.cloudinary.com/deeptailor/image/upload/c_scale,h_250,w_250/v1478762132/album_art/mickey-singh-micksTape.png'})
 Album.create({name:'Major Lazer', artist_id:9, album_art_url:'https://res.cloudinary.com/deeptailor/image/upload/c_fill,h_250,w_250/v1478762776/album_art/Major-Lazer-And-DJ-Snake-Lean-On.jpg'})
 Album.create({name:'Revival', artist_id:10, album_art_url:'https://res.cloudinary.com/deeptailor/image/upload/c_scale,w_250/v1478763209/selena-gomez-revival_mhk0pv.png'})
-Album.create({name:'Roof Top Party', artist_id:8, album_art_url:'http://res.cloudinary.com/deeptailor/image/upload/c_crop,g_north,w_250/v1478764488/Rooftop-party-mickey-singh_wnfitu.jpg'})
+Album.create({name:'Roof Top Party', artist_id:8, album_art_url:'https://res.cloudinary.com/deeptailor/image/upload/c_crop,g_north,w_250/v1478764488/Rooftop-party-mickey-singh_wnfitu.jpg'})
 Album.create({name:'Life Of Pablo', artist_id:11, album_art_url:'https://res.cloudinary.com/deeptailor/image/upload/c_crop,h_250,w_250/v1478764804/kanyewest-lifeofpablo_cqjqr6.jpg'})
 Album.create({name:'Purpose', artist_id:12, album_art_url:'https://res.cloudinary.com/deeptailor/image/upload/c_scale,w_250/v1478765121/album_art/justinBeiber_-Purpose.png'})
 Album.create({name:'Mzuri Mama', artist_id:13, album_art_url:'https://res.cloudinary.com/deeptailor/image/upload/c_fit,h_250,w_250/v1478765752/sauti_sol_guurvf.png'})

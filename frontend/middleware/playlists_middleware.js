@@ -5,15 +5,18 @@ import {
   receiveOwnedPlaylists,
   receivePlaylistErrors,
   receiveAddSongSuccess,
+  receivePlaylistFollowSuccess,
+  receivePlaylistFollowError,
   FETCH_PLAYLISTS,
   FETCH_PLAYLIST,
   FETCH_FOLLOWED_PLAYLISTS,
   FETCH_OWNED_PLAYLISTS,
   CREATE_PLAYLIST,
-  ADD_SONG_TO_PLAYLIST
+  ADD_SONG_TO_PLAYLIST,
+  FOLLOW_PLAYLIST_REQUEST
 } from '../actions/playlist_actions';
 
-import { requestPlaylists, requestPlaylist, requestOwnedPlaylists, requestFollowedPlaylists, createPlaylist, requestAddSongToPlaylist } from '../util/playlists_api_util';
+import { requestPlaylists, requestPlaylist, requestOwnedPlaylists, requestFollowedPlaylists, createPlaylist, requestAddSongToPlaylist, followPlaylistRequest } from '../util/playlists_api_util';
 
 const PlaylistsMiddleware = ({getState, dispatch}) => (next) => (action) => {
 
@@ -22,7 +25,11 @@ const PlaylistsMiddleware = ({getState, dispatch}) => (next) => (action) => {
   const receiveFollowedPlaylistsSuccessCb = (playlists) => dispatch(receiveFollowedPlaylists(playlists));
   const receiveOwnedPlaylistsSuccessCb = (playlists) => dispatch(receiveOwnedPlaylists(playlists));
   const errorsCb = (errors) => dispatch(receivePlaylistErrors(errors.responseJSON));
-  const receiveAddSongSuccessCb = (success) => (dispatch(receiveAddSongSuccess(success)))
+
+  const receiveAddSongSuccessCb = (success) => (dispatch(receiveAddSongSuccess(success)));
+
+  const receivePlaylistFollowSuccessCb = (success) => dispatch(receivePlaylistFollowSuccess(success));
+  const receivePlaylistFollowErrorCb = (error) => dispatch(receivePlaylistFollowError(error.responseJSON));
 
   switch (action.type){
 
@@ -48,6 +55,10 @@ const PlaylistsMiddleware = ({getState, dispatch}) => (next) => (action) => {
 
     case ADD_SONG_TO_PLAYLIST:
       requestAddSongToPlaylist(action.params, receiveAddSongSuccessCb, errorsCb)
+      return next(action);
+
+    case FOLLOW_PLAYLIST_REQUEST:
+      followPlaylistRequest(action.params, receivePlaylistFollowSuccessCb, receivePlaylistFollowErrorCb)
       return next(action);
 
     default:

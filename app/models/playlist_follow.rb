@@ -11,6 +11,7 @@
 
 class PlaylistFollow < ActiveRecord::Base
   validates :playlist_id, :user_id, presence: true
+  validates_uniqueness_of :user_id, :scope => [:playlist_id]
 
   belongs_to :user,
   inverse_of: :playlist_follows

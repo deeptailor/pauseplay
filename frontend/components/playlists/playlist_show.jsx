@@ -10,6 +10,7 @@ const playlistStyle = (imgUrl) =>({
 class PlaylistShow extends React.Component {
   constructor(props){
     super(props);
+    this.state = {user_id: 0, playlist_id: 0, error: [], success: [], following: false}
     this.renderSongs = this.renderSongs.bind(this);
     this.linkToHomePage = this.linkToHomePage.bind(this);
     this.playSong = this.playSong.bind(this);
@@ -17,15 +18,34 @@ class PlaylistShow extends React.Component {
     this.addAllSongsToQue = this.addAllSongsToQue.bind(this);
     this.addSongsForOwner = this.addSongsForOwner.bind(this);
     this.renderSongsContainer = this.renderSongsContainer.bind(this);
+    this.followPlaylist = this.followPlaylist.bind(this);
+    this.renderFollowOrFollowing = this.renderFollowOrFollowing.bind(this);
   }
 
   componentDidMount(){
-    this.props.fetchPlaylist(this.props.params.playlist_id)
+    this.props.fetchPlaylist(this.props.params.playlist_id);
+    this.props.fetchFollowedPlaylists(this.props.currentUser.id);
+    this.setState({user_id: this.props.currentUser.id, playlist_id: this.props.params.playlist_id});
   }
 
   componentWillUnmount(){
     if(this.props.clearErrors){
       this.props.clearErrors();
+    }
+    this.props.clearPlaylistFollowErrorAndSuccess();
+  }
+
+  componentWillReceiveProps(newProps){
+    if(newProps.error){
+      this.setState({error: newProps.error})
+    }
+    if(newProps.success){
+      this.setState({success: newProps.success})
+    }
+    if(newProps.followedPlaylistIds.length > 0){
+      if(newProps.followedPlaylistIds.includes(this.props.params.playlist_id)){
+        this.setState({following: true})
+      }
     }
   }
 
@@ -48,8 +68,25 @@ class PlaylistShow extends React.Component {
     }
   }
 
+  followPlaylist(e){
+    this.props.followPlaylistRequest(this.state.user_id, this.state.playlist_id);
+    this.setState({following: true})
+  }
+
   linkToHomePage(){
     this.props.router.push('/');
+  }
+
+  renderFollowOrFollowing(){
+    if(this.state.following){
+      return (
+        <h3 className="following">Following</h3>
+      );
+    }else{
+      return (
+        <h3>Follow</h3>
+      );
+    }
   }
 
   addSongsForOwner(){
@@ -62,8 +99,8 @@ class PlaylistShow extends React.Component {
     }
     else{
       return(
-      <div className="owner-add-songs-playlist" onClick={this.linkToHomePage}>
-        <h3>Follow Playlist</h3>
+      <div className="owner-add-songs-playlist" onClick={this.followPlaylist}>
+        {this.renderFollowOrFollowing()}
       </div>
     );
     }

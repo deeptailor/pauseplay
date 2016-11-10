@@ -1,12 +1,18 @@
 import {RECEIVE_PLAYLISTS, RECEIVE_PLAYLIST, RECEIVE_OWNED_PLAYLISTS, RECEIVE_FOLLOWED_PLAYLISTS,
-  RECEIVE_PLAYLIST_ERRORS, CLEAR_PLAYLIST_ERRORS, RECEIVE_ADD_SONG_SUCCESS, CLEAR_PLAYLIST_SUCCESS} from '../actions/playlist_actions'
+  RECEIVE_PLAYLIST_ERRORS, CLEAR_PLAYLIST_ERRORS, RECEIVE_ADD_SONG_SUCCESS, CLEAR_PLAYLIST_SUCCESS,
+  RECEIVE_PLAYLIST_FOLLOW_SUCCESS, RECEIVE_PLAYLIST_FOLLOW_ERROR, CLEAR_PLAYLIST_FOLLOW_ERROR_AND_SUCCESS} from '../actions/playlist_actions'
 
 import merge from 'lodash/merge';
 
 const _nullPlaylistInfo = ({
   playlists: {},
   errors: [],
-  success: []
+  success: [],
+  followedPlaylists: {
+    playlists: {},
+    error: [],
+    success: []
+  }
 });
 
 const PlaylistsReducer = (state = _nullPlaylistInfo, action) => {
@@ -17,6 +23,7 @@ const PlaylistsReducer = (state = _nullPlaylistInfo, action) => {
 
     case RECEIVE_PLAYLISTS:
       newState.playlists = action.playlists;
+      newState.errors = [];
       return newState;
 
     case RECEIVE_PLAYLIST:
@@ -28,7 +35,7 @@ const PlaylistsReducer = (state = _nullPlaylistInfo, action) => {
       return newState;
 
     case RECEIVE_FOLLOWED_PLAYLISTS:
-      newState.playlists = action.playlists;
+      newState.followedPlaylists.playlists = action.playlists;
       return newState;
 
     case RECEIVE_PLAYLIST_ERRORS:
@@ -41,10 +48,26 @@ const PlaylistsReducer = (state = _nullPlaylistInfo, action) => {
 
     case CLEAR_PLAYLIST_SUCCESS:
       newState.success = [];
+      newState.errors = [];
       return newState;
 
     case RECEIVE_ADD_SONG_SUCCESS:
-      newState.success = action.success
+      newState.success = action.success;
+      return newState;
+
+    case RECEIVE_PLAYLIST_FOLLOW_SUCCESS:
+      newState.followedPlaylists.error = [];
+      newState.followedPlaylists.success = action.success;
+      return newState;
+
+    case RECEIVE_PLAYLIST_FOLLOW_ERROR:
+      newState.followedPlaylists.success = [];
+      newState.followedPlaylists.error = action.error;
+      return newState;
+
+    case CLEAR_PLAYLIST_FOLLOW_ERROR_AND_SUCCESS:
+      newState.followedPlaylists.success = [];
+      newState.followedPlaylists.error = [];
       return newState;
 
     default:

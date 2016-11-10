@@ -10,9 +10,13 @@ export const RECEIVE_OWNED_PLAYLISTS = 'RECEIVE_OWNED_PLAYLISTS';
 export const RECEIVE_PLAYLIST_ERRORS = 'RECEIVE_PLAYLIST_ERRORS';
 export const CLEAR_PLAYLIST_ERRORS = 'CLEAR_PLAYLIST_ERRORS';
 export const CLEAR_PLAYLIST_SUCCESS = 'CLEAR_PLAYLIST_SUCCESS';
+export const CLEAR_PLAYLIST_FOLLOW_ERROR_AND_SUCCESS = 'CLEAR_PLAYLIST_FOLLOW_ERROR_AND_SUCCESS';
 
 export const CREATE_PLAYLIST = 'CREATE_PLAYLIST';
 export const ADD_SONG_TO_PLAYLIST = 'ADD_SONG_TO_PLAYLIST';
+export const FOLLOW_PLAYLIST_REQUEST = 'FOLLOW_PLAYLIST_REQUEST';
+export const RECEIVE_PLAYLIST_FOLLOW_SUCCESS = 'RECEIVE_PLAYLIST_FOLLOW_SUCCESS';
+export const RECEIVE_PLAYLIST_FOLLOW_ERROR = 'RECEIVE_PLAYLIST_FOLLOW_ERROR';
 export const RECEIVE_ADD_SONG_SUCCESS = 'RECEIVE_ADD_SONG_SUCCESS';
 
 
@@ -82,4 +86,23 @@ export const receiveAddSongSuccess = (success) => ({
 
 export const clearPlaylistSuccess = () => ({
   type: CLEAR_PLAYLIST_SUCCESS
+})
+
+export const clearPlaylistFollowErrorAndSuccess = () => ({
+  type: CLEAR_PLAYLIST_FOLLOW_ERROR_AND_SUCCESS
+})
+
+export const followPlaylistRequest = (params) => ({
+  type: FOLLOW_PLAYLIST_REQUEST,
+  params: params
+})
+
+export const receivePlaylistFollowSuccess = (success) => ({
+  type: RECEIVE_PLAYLIST_FOLLOW_SUCCESS,
+  success: success
+})
+
+export const receivePlaylistFollowError = (error) => ({
+  type: RECEIVE_PLAYLIST_FOLLOW_ERROR,
+  error: error
 })
