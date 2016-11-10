@@ -57,7 +57,7 @@ class Albums extends React.Component {
   addSongToPlaylist(playlist_id){
     return (e) => {
       this.props.addSongToPlaylist(playlist_id, this.state.selectedSongId)
-      this.clearPlaylistErrors();
+      this.props.clearPlaylistErrors();
     }
   }
 
@@ -83,12 +83,11 @@ class Albums extends React.Component {
   toggleOnPlaylistAddForm(songId){
     return e => {
       if(this.state.usersPlaylistFormDisplay === "none"){
-        this.setState({usersPlaylistFormDisplay: "block", selectedSongId: songId})
+        this.setState({usersPlaylistFormDisplay: "block", selectedSongId: songId, success: []})
       }
       else{
         this.setState({success: [], selectedSongId: songId})
       }
-      this.props.clearPlaylistErrors();
     }
   }
 

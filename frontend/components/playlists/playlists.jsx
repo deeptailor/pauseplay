@@ -29,8 +29,8 @@ class Playlists extends React.Component {
 
   renderPlaylists(){
     return this.props.playlists.map(
-      playlist =>
-      <li key={`playlist-${playlist.id}`}>
+      (playlist, i) =>
+      <li key={`playlist-${i}`}>
         <div className="album-art-container" style={albumStyle(playlist.playlist_image_url)}>
           <div className="album-overlay">
             <span onClick={this.routerPush(playlist.id)} className="full-album-span">

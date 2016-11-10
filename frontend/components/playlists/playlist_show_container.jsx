@@ -3,9 +3,10 @@ import PlaylistShow from './playlist_show';
 import { fetchPlaylist } from '../../actions/playlist_actions';
 import { playSong, addSongToQue, addAllSongsToQue } from '../../actions/songs_actions'
 
-const mapStateToProps = ({playlists}) =>{
+const mapStateToProps = ({playlists, session}) =>{
   return ({
-    playlist: playlists.playlists
+    playlist: playlists.playlists,
+    currentUser: session.currentUser
   })
 }
 

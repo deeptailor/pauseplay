@@ -3,7 +3,7 @@ class Api::PlaylistsController < ApplicationController
   def create
 
     if playlist_params[:playlist_image_url] == ''
-      playlist_image_url = "http://res.cloudinary.com/deeptailor/image/upload/c_scale,h_300,o_19,w_300/v1478317876/favicon_fpu1ou.png"
+      playlist_image_url = "https://res.cloudinary.com/deeptailor/image/upload/o_69/v1478317876/favicon_fpu1ou.png"
     else
       playlist_image_url = playlist_params[:playlist_image_url]
     end

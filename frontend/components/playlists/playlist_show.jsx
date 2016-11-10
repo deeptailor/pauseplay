@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link, withRouter} from 'react-router';
 
 const playlistStyle = (imgUrl) =>({
   backgroundImage: 'url(' + imgUrl + ')',
@@ -10,9 +11,11 @@ class PlaylistShow extends React.Component {
   constructor(props){
     super(props);
     this.renderSongs = this.renderSongs.bind(this);
+    this.linkToHomePage = this.linkToHomePage.bind(this);
     this.playSong = this.playSong.bind(this);
     this.addSongToQue = this.addSongToQue.bind(this);
     this.addAllSongsToQue = this.addAllSongsToQue.bind(this);
+    this.addSongsForOwner = this.addSongsForOwner.bind(this);
     this.renderSongsContainer = this.renderSongsContainer.bind(this);
   }
 
@@ -42,6 +45,20 @@ class PlaylistShow extends React.Component {
   addAllSongsToQue(songs){
     return (e) => {
       return this.props.addAllSongsToQue(songs)
+    }
+  }
+
+  linkToHomePage(){
+    this.props.router.push('/');
+  }
+
+  addSongsForOwner(){
+    if(this.props.currentUser.id === this.props.playlist.owner_id){
+      return (
+        <div className="owner-add-songs-playlist" onClick={this.linkToHomePage}>
+          <h3>Add Songs</h3>
+        </div>
+      )
     }
   }
 
@@ -85,7 +102,7 @@ class PlaylistShow extends React.Component {
     else{
       return (
         <div className="song-list-empty">
-          <h2>Add Songs To Your Playlist</h2>
+          <h1>Playlist Is Empty</h1>
         </div>
       )
     }
@@ -109,8 +126,8 @@ class PlaylistShow extends React.Component {
 
         <div className="albums-showpage-right-column">
           <div className="playlist-showpage-playlist-name">{`${playlist_name} - ${owner_name}`}</div>
-          <div className="album-art-container-album-showpage" style={playlistStyle(playlist_art_url)}>
-          </div>
+          <div className="album-art-container-album-showpage" style={playlistStyle(playlist_art_url)}></div>
+          {this.addSongsForOwner()}
           <div className="playlist-description">
             <h3>Description</h3>
             <div className="description-text">{playlist_description}</div>
@@ -122,4 +139,4 @@ class PlaylistShow extends React.Component {
   }
 }
 
-export default PlaylistShow;
+export default withRouter(PlaylistShow);
