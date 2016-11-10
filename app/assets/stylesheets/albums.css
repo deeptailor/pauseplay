@@ -174,3 +174,8 @@
 .check-mark{
   color: #3cff00;
 }
+
+.error-adding-song-to-playlist{
+  color: red;
+  font-size: 12px;
+}

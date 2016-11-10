@@ -47,8 +47,8 @@ class PlaylistShow extends React.Component {
 
   renderSongs(){
     if(this.props.playlist.songs){
-      return this.props.playlist.songs.map(song =>
-        <li key= {`song-${song.id}`} className="song-title-container">
+      return (this.props.playlist.songs.map(song => (
+        <li key= {`playlistSong-${song.id}`} className="song-title-container">
           <div className="song-title">
             {song.title}
           </div>
@@ -60,7 +60,7 @@ class PlaylistShow extends React.Component {
             <div className="add-song-que"><i className="material-icons" onClick={this.addSongToQue(song)}>queue_music</i></div>
             <div className="add-song-to-que">Add Song To Queue</div>
           </div>
-        </li>)
+        </li>)))
     }
   }
 
@@ -76,9 +76,9 @@ class PlaylistShow extends React.Component {
               <div>Play All</div>
             </div>
           </div>
-          <ol className="song-list-ol">
+          <ul className="song-list-ol">
             {this.renderSongs()}
-          </ol>
+          </ul>
         </div>
       )
     }

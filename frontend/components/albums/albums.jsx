@@ -27,6 +27,7 @@ class Albums extends React.Component {
     this.toggleOnPlaylistAddForm = this.toggleOnPlaylistAddForm.bind(this);
     this.toggleOffPlaylistAddForm = this.toggleOffPlaylistAddForm.bind(this);
     this.toggleCheckMark = this.toggleCheckMark.bind(this);
+    this.renderError = this.renderError.bind(this);
   }
 
   componentDidMount(){
@@ -44,6 +45,7 @@ class Albums extends React.Component {
 
   componentWillUnmount(){
     this.props.clearPlaylistSuccess();
+    this.props.clearPlaylistErrors();
   }
 
   fetchOwnedPlaylists(id){
@@ -55,6 +57,7 @@ class Albums extends React.Component {
   addSongToPlaylist(playlist_id){
     return (e) => {
       this.props.addSongToPlaylist(playlist_id, this.state.selectedSongId)
+      this.clearPlaylistErrors();
     }
   }
 
@@ -83,8 +86,9 @@ class Albums extends React.Component {
         this.setState({usersPlaylistFormDisplay: "block", selectedSongId: songId})
       }
       else{
-        this.setState({success: []})
+        this.setState({success: [], selectedSongId: songId})
       }
+      this.props.clearPlaylistErrors();
     }
   }
 
@@ -92,6 +96,7 @@ class Albums extends React.Component {
     if(this.state.usersPlaylistFormDisplay === "block"){
       this.setState({usersPlaylistFormDisplay: "none"})
     }
+    this.setState({success: []});
   }
 
   toggleCheckMark(){
@@ -103,11 +108,20 @@ class Albums extends React.Component {
     )}
   }
 
+  renderError(){
+    if(this.props.errors.length > 0){
+      return (
+        <p className="error-adding-song-to-playlist">{this.props.errors[0]}</p>
+      )
+    }
+  }
+
   renderUsersPlaylists(){
     if (this.props.playlists.length > 0){
       return (
         <div className="users-playlists-container" style={{display:this.state.usersPlaylistFormDisplay}}>
           <ul className="users-playlists-ul">
+            {this.renderError()}
             {this.toggleCheckMark()}
             <div className="close-button" onClick={this.toggleOffPlaylistAddForm}><i className="material-icons">close</i></div>
             <h3>Your Playlists</h3>

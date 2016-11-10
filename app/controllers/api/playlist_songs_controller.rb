@@ -6,10 +6,10 @@ class Api::PlaylistSongsController < ApplicationController
       if @playlist_song.save
         render json: ["Successfully added"], status: 200
       else
-        render json: ["error adding song"], status: 422
+        render json: ["Song already in your playlist"], status: 422
       end
     else
-      render json: ["wrong arguments provided"], status: 422
+      render json: ["Error Adding Song"], status: 422
     end
   end
 

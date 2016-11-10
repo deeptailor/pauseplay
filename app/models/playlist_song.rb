@@ -11,6 +11,7 @@
 
 class PlaylistSong < ActiveRecord::Base
   validates :song_id, :playlist_id, presence:true
+  validates_uniqueness_of :playlist_id, :scope => [:song_id]
 
   belongs_to :song,
   inverse_of: :playlist_songs
