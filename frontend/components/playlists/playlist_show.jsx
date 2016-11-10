@@ -60,6 +60,13 @@ class PlaylistShow extends React.Component {
         </div>
       )
     }
+    else{
+      return(
+      <div className="owner-add-songs-playlist" onClick={this.linkToHomePage}>
+        <h3>Follow Playlist</h3>
+      </div>
+    );
+    }
   }
 
   renderSongs(){
