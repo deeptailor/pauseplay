@@ -79,6 +79,9 @@ Artist.create({name:'Lil Wayne'})
 Artist.create({name:'Fifth Harmony'})
 Artist.create({name:'Sia'})
 Artist.create({name:'Emeli Sande'})
+Artist.create({name:'Marshmello'})
+Artist.create({name:'Mac Miller'})
+Artist.create({name:'Bebe Rexha'})
 
 
 
@@ -138,6 +141,9 @@ Album.create({name:'Cheap Thrills', artist_id:43, album_art_url:'https://res.clo
 Album.create({name:'StarBoy', artist_id:7, album_art_url:'https://res.cloudinary.com/deeptailor/image/upload/v1478842201/top40-cver/starboy.jpg'})
 Album.create({name:'This Is What You Came For', artist_id:25, album_art_url:'https://res.cloudinary.com/deeptailor/image/upload/v1478842201/top40-cver/This_Is_What_You_Came_For_cover.png'})
 Album.create({name:'Aint My Fault', artist_id:28, album_art_url:'https://res.cloudinary.com/deeptailor/image/upload/v1478842202/top40-cver/zaralarson.png'})
+Album.create({name:'Alone', artist_id:45, album_art_url:'https://res.cloudinary.com/akshaytailor/image/upload/v1478891740/marshmello_rrmz6d.png'})
+Album.create({name:'Dang', artist_id:46, album_art_url:'https://res.cloudinary.com/akshaytailor/image/upload/v1478892040/Mac-Miller-640x631_ohuofn.jpg'})
+Album.create({name:'I Got You', artist_id:47, album_art_url:'https://res.cloudinary.com/akshaytailor/image/upload/v1478892040/bebe-rexha-i-got-you_zgnl81.jpg'})
 
 
 
@@ -181,6 +187,9 @@ Song.create({album_id:50, title:'Cheap Thrills', audio_url:'https://res.cloudina
 Song.create({album_id:51, title:'StarBoy', audio_url:'http://res.cloudinary.com/deeptailor/video/upload/v1478840164/top40/04._The_Weeknd_ft_Daft_Punk_-_Starboy.mp3'})
 Song.create({album_id:52, title:'This Is What You Came For', audio_url:'http://res.cloudinary.com/deeptailor/video/upload/v1478840421/top40/35._Calvin_Harris_Rihanna_-_This_Is_What_You_Came_For.mp3'})
 Song.create({album_id:53, title:'Aint My Fault', audio_url:'https://res.cloudinary.com/deeptailor/video/upload/v1478840436/top40/17._Zara_Larsson_-_Ain_t_My_Fault.mp3'})
+Song.create({album_id:54, title:'Alone', audio_url:'https://res.cloudinary.com/akshaytailor/video/upload/v1478815598/alone/Marshmello_-_Alone_1_g3t351.mp3'})
+Song.create({album_id:55, title:'Dang', audio_url:'https://res.cloudinary.com/akshaytailor/video/upload/v1478815623/dang/Mac_Miller_-_Dang_feat._Anderson_.Paak_Official_Audio_le8pjp.mp3'})
+Song.create({album_id:56, title:'I Got You', audio_url:'https://res.cloudinary.com/akshaytailor/video/upload/v1478815598/i%20got%20you/Bebe_Rexha_-_I_Got_You_yyw4yd.mp3'})
 
 
 
