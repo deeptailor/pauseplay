@@ -51,7 +51,6 @@ class Splash extends React.Component{
           </div>
 
           <div className="splash-album-container">
-            <div className="whats-new-splash" onClick={(e)=>window.scrollBy(0,window.innerHeight)}><i className="material-icons">keyboard_arrow_down</i></div>
             <ul className="splash-albums-ul">
             {this.renderAlbums()}
             </ul>
