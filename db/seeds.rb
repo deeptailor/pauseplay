@@ -83,6 +83,16 @@ Artist.create({name:'Marshmello'})
 Artist.create({name:'Mac Miller'})
 Artist.create({name:'Bebe Rexha'})
 
+Artist.create({name:'Charlie Puth'})#48
+Artist.create({name:'Janelle Monae'})
+Artist.create({name:'Mr. Revillz'})
+Artist.create({name:'Passenger'})
+Artist.create({name:'Red One'})
+Artist.create({name:'Zara Larson'})
+Artist.create({name:'Benny Benassi'})
+Artist.create({name:'Kungs'})#55
+Artist.create({name:'Craig David'})
+
 
 
 
@@ -144,6 +154,17 @@ Album.create({name:'Aint My Fault', artist_id:28, album_art_url:'https://res.clo
 Album.create({name:'Alone', artist_id:45, album_art_url:'https://res.cloudinary.com/akshaytailor/image/upload/v1478891740/marshmello_rrmz6d.png'})
 Album.create({name:'Dang', artist_id:46, album_art_url:'https://res.cloudinary.com/akshaytailor/image/upload/v1478892040/Mac-Miller-640x631_ohuofn.jpg'})
 Album.create({name:'I Got You', artist_id:47, album_art_url:'https://res.cloudinary.com/akshaytailor/image/upload/v1478892040/bebe-rexha-i-got-you_zgnl81.jpg'})
+Album.create({name:'We Dont Talk Anymore', artist_id:48, album_art_url:'https://res.cloudinary.com/akshaytailor/image/upload/c_scale,h_500,w_500/v1478898829/We_Don_t_Talk_Anymore_Mr._Collipark_Remix_zgtedq.png'})
+Album.create({name:'Yoga', artist_id:49, album_art_url:'https://res.cloudinary.com/akshaytailor/image/upload/c_scale,w_500/v1478898820/Yoga_f6phoe.png'})
+Album.create({name:'Thousand Years', artist_id:50, album_art_url:'https://res.cloudinary.com/akshaytailor/image/upload/c_scale,w_500/v1478898812/Thousand_Years_ft._Patrick_Baker_glf2iv.png'})
+Album.create({name:'Young As The Rain Old As The Sea', artist_id:51, album_art_url:'https://res.cloudinary.com/akshaytailor/image/upload/v1478898811/Young_As_The_Morning_Old_As_The_Sea_faxv7j.png'})
+Album.create({name:'Dont You Need Somebody', artist_id:52, album_art_url:'https://res.cloudinary.com/akshaytailor/image/upload/c_scale,w_500/v1478898810/Don_t_You_Need_Somebody_ctcnd8.png'})
+Album.create({name:'Uncover(Richello Remix)', artist_id:53, album_art_url:'https://res.cloudinary.com/akshaytailor/image/upload/v1478898809/Uncover_Richello_Remix_ton5bo.png'})
+Album.create({name:'Dance-A-Holic', artist_id:53, album_art_url:'https://res.cloudinary.com/akshaytailor/image/upload/v1478898809/Universe_feat._BullySongs_jczwzk.png'})
+Album.create({name:'Talk', artist_id:26, album_art_url:'https://res.cloudinary.com/akshaytailor/image/upload/v1478898799/Talk_lhgfil.png'})
+Album.create({name:'This Girl', artist_id:55, album_art_url:'https://res.cloudinary.com/akshaytailor/image/upload/v1478898798/This_Girl_xcmxte.png'})
+Album.create({name:'Secret Love Song', artist_id:25, album_art_url:'https://res.cloudinary.com/akshaytailor/image/upload/v1478898796/Secret_Love_Song_wlbamb.png'})
+Album.create({name:'One More Time', artist_id:56, album_art_url:'https://res.cloudinary.com/akshaytailor/image/upload/v1478898791/One_more_time_k72kw9.png'})
 
 
 
@@ -191,6 +212,18 @@ Song.create({album_id:54, title:'Alone', audio_url:'https://res.cloudinary.com/a
 Song.create({album_id:55, title:'Dang', audio_url:'https://res.cloudinary.com/akshaytailor/video/upload/v1478815623/dang/Mac_Miller_-_Dang_feat._Anderson_.Paak_Official_Audio_le8pjp.mp3'})
 Song.create({album_id:56, title:'I Got You', audio_url:'https://res.cloudinary.com/akshaytailor/video/upload/v1478815598/i%20got%20you/Bebe_Rexha_-_I_Got_You_yyw4yd.mp3'})
 
+
+Song.create({title:'We Dont Talk Anymore', album_id:57, audio_url:'https://res.cloudinary.com/akshaytailor/video/upload/v1478897272/Charlie_Puth_-_We_Don_t_Talk_Anymore_ft._Selena_Gomez_Mr._Collipark_Remix_spjjmv.mp3'})
+Song.create({title:'Yoga', album_id:58, audio_url:"https://res.cloudinary.com/akshaytailor/video/upload/v1478897471/Janelle_Monáe_Jidenna_-_Yoga_Lyrics_fnmhj6.mp3"})
+Song.create({title:'Thousand Years', album_id:59, audio_url:'https://res.cloudinary.com/akshaytailor/video/upload/v1478897754/Diviners_-_Thousand_Years_ft._Patrick_Baker_hgdygx.mp3'})
+Song.create({title:'Young As The Rain Old As The Sea', album_id:60, audio_url:'https://res.cloudinary.com/akshaytailor/video/upload/v1478896962/Passenger_-_Young_As_The_Morning_Old_As_The_Sea_Official_Album_Audio_bbrgqu.mp3'})
+Song.create({title:'Dont You Need Somebody', album_id:61, audio_url:'https://res.cloudinary.com/akshaytailor/video/upload/v1478897511/RedOne_Don_t_You_Need_Somebody_Lyrics_Video_ft_Enrique_Iglesias_nwewih.mp3'})
+Song.create({title:'Uncover(Richello Remix)', album_id:62, audio_url:'https://res.cloudinary.com/akshaytailor/video/upload/v1478896888/Tory_Lanez_-_LUV_lyrics_ed3kym.mp3'})
+Song.create({title:'Dance-A-Holic', album_id:63, audio_url:'https://res.cloudinary.com/akshaytailor/video/upload/v1478897742/Benny_Benassi_-_Universe_feat._BullySongs_zthzss.mp3'})
+Song.create({title:'Talk', album_id:64, audio_url:'https://res.cloudinary.com/akshaytailor/video/upload/v1478897759/DJ_Snake_-_Talk_Audio_ft._George_Maple_qhnzaw.mp3'})
+Song.create({title:'This Girl', album_id:65, audio_url:'https://res.cloudinary.com/akshaytailor/video/upload/v1478897848/Kungs_vs_Cookin_on_3_Burners_-_This_Girl_Lyric_Video_fpuad0.mp3'})
+Song.create({title:'Secret Love Song', album_id:66, audio_url:'https://res.cloudinary.com/akshaytailor/video/upload/v1478897915/Little_Mix_-_Secret_Love_Song_ft._Jason_Derulo_Lyrics_Pictures_xbvab1.mp3'})
+Song.create({title:'One More Time', album_id:67, audio_url:'https://res.cloudinary.com/akshaytailor/video/upload/v1478897765/one_more_time_lyrics_Craig_David_i7twmq.mp3'})
 
 
 
