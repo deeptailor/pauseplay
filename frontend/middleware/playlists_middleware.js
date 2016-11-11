@@ -13,10 +13,11 @@ import {
   FETCH_OWNED_PLAYLISTS,
   CREATE_PLAYLIST,
   ADD_SONG_TO_PLAYLIST,
-  FOLLOW_PLAYLIST_REQUEST
+  FOLLOW_PLAYLIST_REQUEST,
+  DELETE_PLAYLIST
 } from '../actions/playlist_actions';
 
-import { requestPlaylists, requestPlaylist, requestOwnedPlaylists, requestFollowedPlaylists, createPlaylist, requestAddSongToPlaylist, followPlaylistRequest } from '../util/playlists_api_util';
+import { requestPlaylists, requestPlaylist, requestOwnedPlaylists, requestFollowedPlaylists, createPlaylist, requestAddSongToPlaylist, followPlaylistRequest, deletePlaylistRequest } from '../util/playlists_api_util';
 
 const PlaylistsMiddleware = ({getState, dispatch}) => (next) => (action) => {
 
@@ -59,6 +60,10 @@ const PlaylistsMiddleware = ({getState, dispatch}) => (next) => (action) => {
 
     case FOLLOW_PLAYLIST_REQUEST:
       followPlaylistRequest(action.params, receivePlaylistFollowSuccessCb, receivePlaylistFollowErrorCb)
+      return next(action);
+
+    case DELETE_PLAYLIST:
+      deletePlaylistRequest(action.id, receivePlaylistFollowSuccessCb, receivePlaylistFollowErrorCb)
       return next(action);
 
     default:

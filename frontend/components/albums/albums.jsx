@@ -1,4 +1,5 @@
 import React from 'react';
+import {withRouter} from 'react-router'
 
 const albumStyle = (imgUrl) =>({
   backgroundImage: 'url(' + imgUrl + ')',
@@ -19,6 +20,7 @@ class Albums extends React.Component {
     this.renderUsersPlaylists = this.renderUsersPlaylists.bind(this);
 
     this.playSong = this.playSong.bind(this);
+    this.createPlaylist = this.createPlaylist.bind(this);
 
     this.addSongToQue = this.addSongToQue.bind(this);
     this.addAllSongsToQue = this.addAllSongsToQue.bind(this);
@@ -107,6 +109,10 @@ class Albums extends React.Component {
     )}
   }
 
+  createPlaylist(){
+    this.props.router.push('/playlists/create');
+  }
+
   renderError(){
     if(this.props.errors.length > 0){
       return (
@@ -125,6 +131,15 @@ class Albums extends React.Component {
             <div className="close-button" onClick={this.toggleOffPlaylistAddForm}><i className="material-icons">close</i></div>
             <h3>Your Playlists</h3>
             {this.props.playlists.map((playlist, i) => <li onClick={this.addSongToPlaylist(playlist.id)} key={`userPlaylist-${i}`} className="users-playlist-li">{playlist.title}</li>)}
+          </ul>
+        </div>
+      )
+    }else{
+      return (
+        <div className="users-playlists-container" style={{display:this.state.usersPlaylistFormDisplay}}>
+          <ul className="users-playlists-ul">
+            <div className="close-button" onClick={this.toggleOffPlaylistAddForm}><i className="material-icons">close</i></div>
+            <h3 onClick={this.createPlaylist} className="no-playlist-user-add">Create A Playlist</h3>
           </ul>
         </div>
       )
@@ -203,4 +218,4 @@ class Albums extends React.Component {
   }
 }
 
-export default Albums;
+export default withRouter(Albums);

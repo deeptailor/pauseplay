@@ -43,8 +43,8 @@ class Playlists extends React.Component {
       (playlist, i) =>
       <li key={`playlist-${i}`}>
         <div className="album-art-container" style={albumStyle(playlist.playlist_image_url)}>
-          <div className="album-overlay">
-            <span onClick={this.routerPush(playlist.id)} className="full-album-span">
+          <div onClick={this.routerPush(playlist.id)} className="album-overlay">
+            <span className="full-album-span">
               <p className="full-album-text">View Playlist</p>
             </span>
             <p className="overlay-album-name">{playlist.title}</p>

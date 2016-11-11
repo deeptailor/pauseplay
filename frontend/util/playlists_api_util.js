@@ -66,3 +66,10 @@ export const followPlaylistRequest = (data, success, error) => {
     error: error
   });
 }
+
+export const deletePlaylistRequest = (id) => {
+  $.ajax({
+    method: 'delete',
+    url: `api/playlists/${id}`,
+  })
+}

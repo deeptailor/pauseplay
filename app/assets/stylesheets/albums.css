@@ -179,3 +179,11 @@
   color: red;
   font-size: 12px;
 }
+
+.no-playlist-user-add{
+  font-size: 14px;
+}
+.no-playlist-user-add:hover{
+  cursor: pointer;
+  color: #3cff00;
+}

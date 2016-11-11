@@ -95,8 +95,8 @@
   width: 20%;
   font-size: 14px;
   text-align: center;
-  color: black;
-  transition: border-color 1s, color 0.5s;
+  color: white;
+  transition: border-color 1s;
 }
 
 .album-overlay:hover{

@@ -18,6 +18,7 @@ export const FOLLOW_PLAYLIST_REQUEST = 'FOLLOW_PLAYLIST_REQUEST';
 export const RECEIVE_PLAYLIST_FOLLOW_SUCCESS = 'RECEIVE_PLAYLIST_FOLLOW_SUCCESS';
 export const RECEIVE_PLAYLIST_FOLLOW_ERROR = 'RECEIVE_PLAYLIST_FOLLOW_ERROR';
 export const RECEIVE_ADD_SONG_SUCCESS = 'RECEIVE_ADD_SONG_SUCCESS';
+export const DELETE_PLAYLIST = 'DELETE_PLAYLIST';
 
 
 export const fetchPlaylists = () => ({
@@ -106,3 +107,8 @@ export const receivePlaylistFollowError = (error) => ({
   type: RECEIVE_PLAYLIST_FOLLOW_ERROR,
   error: error
 })
+
+export const deletePlaylist = (id) => ({
+  type: DELETE_PLAYLIST,
+  id: id
+});

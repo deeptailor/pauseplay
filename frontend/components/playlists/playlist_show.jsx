@@ -20,6 +20,7 @@ class PlaylistShow extends React.Component {
     this.renderSongsContainer = this.renderSongsContainer.bind(this);
     this.followPlaylist = this.followPlaylist.bind(this);
     this.renderFollowOrFollowing = this.renderFollowOrFollowing.bind(this);
+    this.deletePlaylist = this.deletePlaylist.bind(this);
   }
 
   componentDidMount(){
@@ -77,6 +78,13 @@ class PlaylistShow extends React.Component {
     this.props.router.push('/');
   }
 
+  deletePlaylist(id){
+    return (e) => {
+      this.props.deletePlaylist(id);
+      this.props.router.push('/');
+    }
+  }
+
   renderFollowOrFollowing(){
     if(this.state.following){
       return (
@@ -92,8 +100,14 @@ class PlaylistShow extends React.Component {
   addSongsForOwner(){
     if(this.props.currentUser.id === this.props.playlist.owner_id){
       return (
-        <div className="owner-add-songs-playlist" onClick={this.linkToHomePage}>
-          <h3>Add Songs</h3>
+        <div className="owner-playlist-options">
+          <div className="owner-add-songs-playlist" onClick={this.linkToHomePage}>
+            <h3>Add Songs</h3>
+          </div>
+
+          <div className="delete-playlist" onClick={this.deletePlaylist(this.props.playlist.id)}>
+            <h3>Delete Playlist</h3>
+          </div>
         </div>
       )
     }

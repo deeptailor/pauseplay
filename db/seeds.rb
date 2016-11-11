@@ -214,6 +214,10 @@ Playlist.create({title:'Bollywood Hits',description:'Hits from around the world'
 # Playlist.create({title:'',description:'',owner_id:,public:true,playlist_image_url:''})
 # Playlist.create({title:'',description:'',owner_id:,public:true,playlist_image_url:''})
 # Playlist.create({title:'',description:'',owner_id:,public:true,playlist_image_url:''})
+# Playlist.create({title:'',description:'',owner_id:,public:true,playlist_image_url:''})
+# Playlist.create({title:'',description:'',owner_id:,public:true,playlist_image_url:''})
+# Playlist.create({title:'',description:'',owner_id:,public:true,playlist_image_url:''})
+# Playlist.create({title:'',description:'',owner_id:,public:true,playlist_image_url:''})
 
 PlaylistSong.create({song_id:5, playlist_id:1})
 PlaylistSong.create({song_id:6, playlist_id:1})

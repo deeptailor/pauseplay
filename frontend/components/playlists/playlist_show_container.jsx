@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import PlaylistShow from './playlist_show';
-import { fetchPlaylist, followPlaylistRequest, clearPlaylistFollowErrorAndSuccess, fetchFollowedPlaylists } from '../../actions/playlist_actions';
+import { fetchPlaylist, followPlaylistRequest, clearPlaylistFollowErrorAndSuccess, fetchFollowedPlaylists, deletePlaylist } from '../../actions/playlist_actions';
 import { playSong, addSongToQue, addAllSongsToQue} from '../../actions/songs_actions'
 
 const mapStateToProps = ({playlists, session}) =>{
@@ -23,7 +23,8 @@ const mapDispatchToProps = (dispatch) => {
     addAllSongsToQue: (songs) => dispatch(addAllSongsToQue(songs)),
     followPlaylistRequest: (userId, playlistId) => dispatch(followPlaylistRequest({user_id: userId, playlist_id: playlistId})),
     clearPlaylistErrors: () => dispatch(clearPlaylistErrors()),
-    clearPlaylistFollowErrorAndSuccess: () => dispatch(clearPlaylistFollowErrorAndSuccess())
+    clearPlaylistFollowErrorAndSuccess: () => dispatch(clearPlaylistFollowErrorAndSuccess()),
+    deletePlaylist: (id) => dispatch(deletePlaylist(id))
   });
 }
 

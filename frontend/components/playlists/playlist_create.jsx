@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router'
 
 
 class PlaylistCreate extends React.Component {
@@ -80,4 +81,4 @@ class PlaylistCreate extends React.Component {
   }
 }
 
-export default PlaylistCreate;
+export default withRouter(PlaylistCreate);

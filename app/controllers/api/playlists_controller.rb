@@ -48,7 +48,8 @@ class Api::PlaylistsController < ApplicationController
   end
 
   def destroy
-
+    @playlist = Playlist.find_by_id(params[:id])
+    @playlist.destroy
   end
 
   private

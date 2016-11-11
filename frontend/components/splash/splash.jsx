@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, withRouter } from 'react-router';
 
 // to={`albums/${album.id}`}
 const albumStyle = (imgUrl) =>({
@@ -79,4 +79,4 @@ class Splash extends React.Component{
   }
 }
 
-export default Splash;
+export default withRouter(Splash);
