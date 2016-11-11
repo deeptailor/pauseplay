@@ -1,0 +1,9 @@
+.playlists-navigate-2{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 15px;
+  align-items: center;
+  background: rgba(0,0,0,0.7);
+}

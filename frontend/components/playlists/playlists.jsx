@@ -57,14 +57,14 @@ class Playlists extends React.Component {
   render(){
     return (
       <div className="playlist-index-container">
-        <h1>Explore Playlists</h1>
-        &nbsp;
 
         <div className="playlists-navigate">
           <div className="create-playlist" onClick={this.createPlaylistRouter}>Create Playlist &nbsp;<i className="material-icons">playlist_add</i></div>
           <div className="my-playlists" onClick={this.myPlaylistsRouter}>My Playlists</div>
           <div className="my-playlists" onClick={this.followedPlaylistsRouter}>Followed Playlists</div>
         </div>
+
+        <h1>Browse Playlists</h1>
 
         <div className="playlists-container">
           {this.renderPlaylists()}

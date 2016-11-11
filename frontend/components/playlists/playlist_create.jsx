@@ -61,14 +61,14 @@ class PlaylistCreate extends React.Component {
           <input type="text"
 								value={this.state.description}
 								onChange={this.update("description")}
-                placeholder="Description"
+                placeholder="Description(optional)"
 								className="login-input"/>
           <br/>
 
           <input type="text"
                 value={this.state.playlist_image_url}
                 onChange={this.update("playlist_image_url")}
-                placeholder="Playlist Image URL"
+                placeholder="Playlist Image URL(optional)"
                 className="login-input" />
           <br/>
 

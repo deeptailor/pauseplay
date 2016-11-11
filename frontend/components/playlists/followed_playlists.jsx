@@ -14,6 +14,8 @@ class FollowedPlaylists extends React.Component {
     this.renderPlaylists = this.renderPlaylists.bind(this);
     this.routerPush = this.routerPush.bind(this);
     this.createPlaylistRouter = this.createPlaylistRouter.bind(this);
+    this.browsePlaylistRouter = this.browsePlaylistRouter.bind(this);
+    this.myPlaylistRouter = this.myPlaylistRouter.bind(this);
   }
 
   componentWillMount(){
@@ -26,6 +28,14 @@ class FollowedPlaylists extends React.Component {
 
   createPlaylistRouter(){
     this.props.router.push(`playlists/create`)
+  }
+
+  myPlaylistRouter(){
+    this.props.router.push(`myplaylists`)
+  }
+
+  browsePlaylistRouter(){
+    this.props.router.push(`playlists`)
   }
 
   renderPlaylists(){
@@ -47,8 +57,14 @@ class FollowedPlaylists extends React.Component {
   render(){
     return (
       <div className="playlist-index-container">
+        <div className="playlists-navigate-2">
+          <div className="create-playlist" onClick={this.createPlaylistRouter}>Create Playlist &nbsp;<i className="material-icons">playlist_add</i></div>
+            <div className="my-playlists" onClick={this.browsePlaylistRouter}>Browse Playlists</div>
+            <div className="my-playlists" onClick={this.myPlaylistRouter}>My Playlists</div>
+        </div>
+
         <h1>Followed Playlists</h1>
-        &nbsp;
+
         <div className="create-playlist" onClick={this.createPlaylistRouter}>Create Playlist &nbsp;<i className="material-icons">playlist_add</i></div>
         <div className="playlists-container">
           {this.renderPlaylists()}
