@@ -29,6 +29,7 @@ class Splash extends React.Component{
       <li key={`album-${album.id}`}>
         <div className="album-art-container" style={albumStyle(album.album_art_url)}>
           <div onClick={this.routerPush(album.id)} className="album-overlay">
+            <p className="overlay-album-artist">{album.artist}</p>
             <span className="full-album-span">
               <p className="full-album-text">Full Album</p>
             </span>

@@ -8,7 +8,7 @@
 .top-image-container{
   position: absolute;
   left:0;
-  background-image: url("https://res.cloudinary.com/deeptailor/image/upload/e_contrast:0,q_auto:good,r_0/v1478066750/collage-pic_noscrb.png");
+  background-image: url("https://res.cloudinary.com/deeptailor/image/upload/v1478066750/collage-pic_noscrb.jpg");
   background-position: center;
   background-size: contain;
   height: 90vh;
@@ -111,14 +111,9 @@
 
 .album-art-container:hover .album-overlay{
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-}
-
-.overlay-album-name{
-  position: absolute;
-  bottom: 0;
-  margin: 0 auto;
 }
 
 .whats-new-splash{

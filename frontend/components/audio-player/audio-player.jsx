@@ -30,13 +30,15 @@ class AudioPlayer extends React.Component{
     if(nextProps.currentSong.audio_url && nextProps.currentSong.audio_url !== this.state.currentSong){
       this.setState({
         currentSong: nextProps.currentSong.audio_url,
-        playing: true
+        playing: true,
+        progress: 0,
+        loaded: 0
       });
     }
     if(nextProps.que.length !== 0){
       if(!nextProps.currentSong.audio_url){
         this.props.addToCurrentSongFromQue();
-        this.setState({queLength: this.state.que.slice(1), progress: 0, playing: true})
+        this.setState({queLength: this.state.que.slice(1), progress: 0, loaded: 0, playing: true})
       }
       this.setState({que: nextProps.que, queLength: nextProps.que.length})
     }
@@ -147,7 +149,9 @@ render(){
       </div>
 
       <div className="audio-bar-song-name">
-        <p>{this.props.currentSong.title}</p>
+        <div>
+          <span>{`${this.props.currentSong.title} - ${this.props.currentSong.artist}`}</span>
+        </div>
       </div>
       <div className="audio-bar-options">
         <i className="material-icons" onClick={this.toggleLoop} style={this.toggleLoopColor()}>loop</i>
