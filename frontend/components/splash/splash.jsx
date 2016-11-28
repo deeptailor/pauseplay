@@ -25,19 +25,22 @@ class Splash extends React.Component{
 
   renderAlbums(){
     return this.props.albums.map(
-      album =>
-      <li key={`album-${album.id}`}>
-        <div className="album-art-container" style={albumStyle(album.album_art_url)}>
-          <div onClick={this.routerPush(album.id)} className="album-overlay">
-            <p className="overlay-album-artist">{album.artist}</p>
-            <span className="full-album-span">
-              <p className="full-album-text">Full Album</p>
-            </span>
-            <p className="overlay-album-name">{album.name}</p>
+      album => {
+      let artist = `${album.artist}`;
+      return(
+        <li key={`album-${album.id}`}>
+          <div className="album-art-container" style={albumStyle(album.album_art_url)}>
+            <div onClick={this.routerPush(album.id)} className="album-overlay">
+              <p className="overlay-album-artist">{artist}</p>
+              <span className="full-album-span">
+                <p className="full-album-text">Full Album</p>
+              </span>
+              <p className="overlay-album-name">{album.name}</p>
+            </div>
           </div>
-        </div>
-      </li>
-    )
+        </li>
+      )
+    })
   }
 
   render(){
