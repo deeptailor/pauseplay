@@ -27,7 +27,7 @@ class AudioPlayer extends React.Component{
   }
 
   componentWillReceiveProps(nextProps){
-    if(nextProps.currentSong.audio_url && nextProps.currentSong.audio_url !== this.state.currentSong){
+    if(nextProps.currentSong.audio_url && nextProps.currentSong.audio_url !== this.state.currentSong && !nextProps.pause){
       this.setState({
         currentSong: nextProps.currentSong.audio_url,
         playing: true,
@@ -41,6 +41,12 @@ class AudioPlayer extends React.Component{
         this.setState({queLength: this.state.que.slice(1), progress: 0, loaded: 0, playing: true})
       }
       this.setState({que: nextProps.que, queLength: nextProps.que.length})
+    }
+    if(nextProps.pause){
+      this.setState({playing:false})
+    }
+    if(!nextProps.pause){
+      this.setState({playing: true})
     }
   }
 

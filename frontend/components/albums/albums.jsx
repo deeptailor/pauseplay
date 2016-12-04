@@ -13,13 +13,14 @@ class Albums extends React.Component {
   constructor(props){
     super(props)
 
-    this.state = {usersPlaylistFormDisplay: 'none', selectedSongId:0, success: []}
+    this.state = {usersPlaylistFormDisplay: 'none', selectedSongId:0, success: [], currentSong:{}, pause:false}
 
     this.renderSongs = this.renderSongs.bind(this);
     this.renderAddToPlaylist = this.renderAddToPlaylist.bind(this);
     this.renderUsersPlaylists = this.renderUsersPlaylists.bind(this);
 
     this.playSong = this.playSong.bind(this);
+    this.pauseSong = this.pauseSong.bind(this);
     this.createPlaylist = this.createPlaylist.bind(this);
 
     this.addSongToQue = this.addSongToQue.bind(this);
@@ -30,6 +31,7 @@ class Albums extends React.Component {
     this.toggleOffPlaylistAddForm = this.toggleOffPlaylistAddForm.bind(this);
     this.toggleCheckMark = this.toggleCheckMark.bind(this);
     this.renderError = this.renderError.bind(this);
+    this.renderPlayPauseButton = this.renderPlayPauseButton.bind(this);
   }
 
   componentDidMount(){
@@ -42,6 +44,15 @@ class Albums extends React.Component {
   componentWillReceiveProps(newProps){
     if(newProps.addSongSuccess.length > 0){
       this.setState({success: newProps.addSongSuccess})
+    }
+    if (newProps.currentSong){
+      this.setState({currentSong: newProps.currentSong, pause:false})
+    }
+    if (newProps.pause){
+      this.setState({pause: true})
+    }
+    if (!newProps.pause){
+      this.setState({pause: false})
     }
   }
 
@@ -68,6 +79,10 @@ class Albums extends React.Component {
       e.preventDefault();
       return this.props.playSong(song)
     };
+  }
+
+  pauseSong(){
+    return this.props.pauseSong();
   }
 
   addSongToQue(song){
@@ -157,6 +172,22 @@ class Albums extends React.Component {
     }
   }
 
+  renderPlayPauseButton(song){
+    if(song.id === this.state.currentSong.id && !this.state.pause){
+      return (
+        <div className="play-song"><i className="material-icons" onClick={this.pauseSong}>pause_circle_outline</i></div>
+      )
+    }else if(this.state.pause && song.id === this.state.currentSong.id){
+      return(
+        <div className="play-song"><i className="material-icons" onClick={this.playSong(song)}>play_circle_outline</i></div>
+      )
+    }else{
+      return (
+        <div className="play-song"><i className="material-icons" onClick={this.playSong(song)}>play_circle_outline</i></div>
+      )
+    }
+  }
+
   renderSongs(){
     if(this.props.songs){
       return this.props.songs.map(song =>
@@ -168,7 +199,7 @@ class Albums extends React.Component {
           <div className="add-song-to-que">Add Song To Queue</div>
 
           <div className="buttons-on-songs">
-            <div className="play-song"><i className="material-icons" onClick={this.playSong(song)}>play_circle_outline</i></div>
+            {this.renderPlayPauseButton(song)}
             {this.renderAddToPlaylist(song.id)}
             <div className="add-song-que"><i className="material-icons" onClick={this.addSongToQue(song)}>queue_music</i></div>
             <div className="add-song-to-que">Add Song To Queue</div>

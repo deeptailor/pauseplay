@@ -14,6 +14,8 @@ export const ADD_TO_CURRENT_SONG_FROM_QUE = "ADD_TO_CURRENT_SONG_FROM_QUE";
 export const ADD_ALL_SONGS_TO_QUE = "ADD_ALL_SONGS_TO_QUE";
 
 export const PLAY_SONG = "PLAY_SONG";
+export const PAUSE_SONG = "PAUSE_SONG";
+export const UNDO_PAUSE_SONG = "UNDO_PAUSE_SONG";
 
 
 export const fetchAllArtists = () => ({
@@ -70,6 +72,14 @@ export const receiveSongs = (songs) => ({
 export const playSong = (song) => ({
   type: PLAY_SONG,
   song: song
+});
+
+export const pauseSong = (song) => ({
+  type: PAUSE_SONG
+});
+
+export const undoPauseSong = (song) => ({
+  type: UNDO_PAUSE_SONG
 });
 
 export const addSongToQue = (song) => ({
