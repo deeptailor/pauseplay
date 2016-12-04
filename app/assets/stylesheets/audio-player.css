@@ -74,6 +74,10 @@
   padding-left: 10px;
 }
 
+.audio-bar-song-name > div > span:hover{
+  cursor: pointer;
+}
+
 .audio-bar-options{
   padding: 5px 0 0 10px;
 }

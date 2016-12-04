@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactPlayer from 'react-player';
+import { withRouter } from 'react-router';
 
 
 class AudioPlayer extends React.Component{
@@ -24,6 +25,7 @@ class AudioPlayer extends React.Component{
     this.playNextSongInQue = this.playNextSongInQue.bind(this);
     this.queList = this.queList.bind(this)
     this.toggleQueStyle = this.toggleQueStyle.bind(this)
+    this.routerPush = this.routerPush.bind(this)
   }
 
   componentWillReceiveProps(nextProps){
@@ -129,6 +131,10 @@ toggleQueStyle(){
   }
 }
 
+routerPush(location){
+  return () => this.props.router.push(location);
+}
+
 
 
 render(){
@@ -155,7 +161,7 @@ render(){
       </div>
 
       <div className="audio-bar-song-name">
-        <div>
+        <div onClick={this.routerPush(`albums/${this.props.currentSong.album_id}`)}>
           <span>{`${this.props.currentSong.title} - ${this.props.currentSong.artist}`}</span>
         </div>
       </div>
@@ -177,4 +183,4 @@ render(){
   }
 }
 
-export default AudioPlayer;
+export default withRouter(AudioPlayer);
