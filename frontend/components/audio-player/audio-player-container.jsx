@@ -7,7 +7,8 @@ const mapStateToProps = ({ songInfo }) => {
   return ({
     currentSong: songInfo.currentSong,
     que: songInfo.que,
-    pause: songInfo.pauseSong
+    pause: songInfo.pauseSong,
+    playing: songInfo.playing
   });
 };
 

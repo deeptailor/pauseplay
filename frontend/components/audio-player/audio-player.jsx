@@ -47,10 +47,13 @@ class AudioPlayer extends React.Component{
       this.setState({que: nextProps.que, queLength: nextProps.que.length})
     }
     if(nextProps.pause){
-      this.setState({paused:true})
+      this.setState({paused:true, playing:false})
     }
     if(!nextProps.pause){
-      this.setState({paused:false})
+      this.setState({paused:false, playing:true})
+    }
+    if(nextProps.playing){
+      this.setState({playing:true, paused:false})
     }
   }
 
@@ -91,8 +94,8 @@ class AudioPlayer extends React.Component{
   }
 
   togglePlayPauseButton(){
-    if(this.state.playing && !this.state.paused){
-      $('title').html('Pauseplay&nbsp;&#9658;')
+    if(this.state.playing && !this.state.paused && this.props.currentSong.audio_url){
+      $('title').html(`&#9658;&nbsp;${this.props.currentSong.title} - ${this.props.currentSong.artist} - Pauseplay`)
       return (<i className="material-icons" onClick={this.togglePlayPauseAction}>pause_circle_filled</i>)
     }
     else{
@@ -120,9 +123,10 @@ toggleLoopColor(){
 playNextSongInQue(){
   if(this.props.que.length > 0){
     this.props.addToCurrentSongFromQue();
-    this.setState({queLength: this.state.que.slice(1), progress: 0, playing: true})
+    this.setState({queLength: this.state.que.slice(1), progress: 0, playing: true, paused: false})
   }
   else{
+    this.props.pauseSong();
     this.setState({que: [], queLength: 0, playing: false, progress: 0, currentSong: ''})
   }
 }

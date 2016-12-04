@@ -21,6 +21,7 @@ class Albums extends React.Component {
 
     this.playSong = this.playSong.bind(this);
     this.pauseSong = this.pauseSong.bind(this);
+    this.undoPauseSong = this.undoPauseSong.bind(this);
     this.createPlaylist = this.createPlaylist.bind(this);
 
     this.addSongToQue = this.addSongToQue.bind(this);
@@ -42,6 +43,10 @@ class Albums extends React.Component {
   }
 
   componentWillReceiveProps(newProps){
+
+    if(newProps.params.album_id !== this.props.params.album_id){
+      newProps.fetchAlbum(newProps.params.album_id);
+    }
     if(newProps.addSongSuccess.length > 0){
       this.setState({success: newProps.addSongSuccess})
     }
@@ -83,6 +88,10 @@ class Albums extends React.Component {
 
   pauseSong(){
     return this.props.pauseSong();
+  }
+
+  undoPauseSong(){
+    return this.props.undoPauseSong();
   }
 
   addSongToQue(song){
@@ -179,7 +188,7 @@ class Albums extends React.Component {
       )
     }else if(this.state.pause && song.id === this.state.currentSong.id){
       return(
-        <div className="play-song"><i className="material-icons" onClick={this.playSong(song)}>play_circle_outline</i></div>
+        <div className="play-song"><i className="material-icons" onClick={this.undoPauseSong}>play_circle_outline</i></div>
       )
     }else{
       return (
