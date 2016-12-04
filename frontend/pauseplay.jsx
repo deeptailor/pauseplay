@@ -34,5 +34,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-  ReactDOM.render(<Root store={store}/>, root)
+  ReactDOM.render(<Root store={store}/>, root);
+
+
+  document.addEventListener('scroll', () => {
+    let scrollPos = $(window).scrollTop() + window.innerHeight;
+    if($('.splash-footer-container').offset()){
+      if (scrollPos >= $('.splash-footer-container').offset().top){
+        let audioHeight = $('.audio-bar-container').height();
+        $('.audio-bar-container').css({position:'absolute'});
+      }else{
+        $('.audio-bar-container').css({position:'fixed'});
+      }
+    }else{
+      $('.audio-bar-container').css({position:'fixed'});
+    }
+  })
 });

@@ -80,6 +80,8 @@ const SongReducer = (state = _nullSongInfo, action) => {
 
     case ADD_TO_CURRENT_SONG_FROM_QUE:
       newState.currentSong = newState.que.shift()
+      newState.playing = true;
+      newState.pauseSong = false;
       return newState;
 
     case ADD_ALL_SONGS_TO_QUE:
