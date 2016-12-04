@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import AudioPlayer from './audio-player';
-import {addToCurrentSongFromQue} from '../../actions/songs_actions'
+import {addToCurrentSongFromQue, pauseSong, undoPauseSong} from '../../actions/songs_actions'
 
 
 const mapStateToProps = ({ songInfo }) => {
@@ -14,7 +14,9 @@ const mapStateToProps = ({ songInfo }) => {
 
 const mapDispatchToProps = dispatch => {
  return ({
-   addToCurrentSongFromQue: () => dispatch(addToCurrentSongFromQue())
+   addToCurrentSongFromQue: () => dispatch(addToCurrentSongFromQue()),
+   pauseSong: () => dispatch(pauseSong()),
+   undoPauseSong: () => dispatch(undoPauseSong())
  });
 };
 

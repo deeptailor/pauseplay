@@ -10,6 +10,7 @@ class AudioPlayer extends React.Component{
     this.state = {
       currentSong: '',
       playing:false,
+      paused:false,
       progress: 0,
       loaded: 0,
       loop: false,
@@ -26,6 +27,7 @@ class AudioPlayer extends React.Component{
     this.queList = this.queList.bind(this)
     this.toggleQueStyle = this.toggleQueStyle.bind(this)
     this.routerPush = this.routerPush.bind(this)
+    this.playSong = this.playSong.bind(this)
   }
 
   componentWillReceiveProps(nextProps){
@@ -45,10 +47,10 @@ class AudioPlayer extends React.Component{
       this.setState({que: nextProps.que, queLength: nextProps.que.length})
     }
     if(nextProps.pause){
-      this.setState({playing:false})
+      this.setState({paused:true})
     }
     if(!nextProps.pause){
-      this.setState({playing: true})
+      this.setState({paused:false})
     }
   }
 
@@ -70,21 +72,31 @@ class AudioPlayer extends React.Component{
 
   togglePlayPauseAction(){
     if(this.state.playing){
+      this.props.pauseSong();
       this.setState({
-        playing: false
+        playing: false,
+        pause: true,
       });
     }else{
+      this.props.undoPauseSong();
       this.setState({
-        playing: true
+        playing: true,
+        pause: false
       });
     }
   }
 
+  playSong(){
+    this.setState({pause: false, playing:true})
+  }
+
   togglePlayPauseButton(){
-    if(this.state.playing){
+    if(this.state.playing && !this.state.paused){
+      $('title').html('Pauseplay&nbsp;&#9658;')
       return (<i className="material-icons" onClick={this.togglePlayPauseAction}>pause_circle_filled</i>)
     }
     else{
+      $('title').html('Pauseplay')
       return (<i className="material-icons" onClick={this.togglePlayPauseAction}>play_circle_filled</i>);
     }
   }
@@ -141,7 +153,7 @@ render(){
   return (
     <div className="audio-bar-container" id="audiobar" style={this.showPlayer()}>
       <ReactPlayer
-        playing={this.state.playing}
+        playing={this.state.playing && !this.state.paused}
         loop={this.state.loop}
         url={this.state.currentSong}
         hidden={true}
