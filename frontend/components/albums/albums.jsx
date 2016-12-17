@@ -1,5 +1,6 @@
 import React from 'react';
-import {withRouter} from 'react-router'
+import {withRouter} from 'react-router';
+import ReactTooltip from 'react-tooltip';
 
 const albumStyle = (imgUrl) =>({
   backgroundImage: 'url(' + imgUrl + ')',
@@ -174,8 +175,10 @@ class Albums extends React.Component {
     if (this.props.currentUser){
       return (
         <div className="add-song-to-playlist" onClick={this.toggleOnPlaylistAddForm(songId)}>
-          <i className="material-icons">playlist_add</i>
-          <div className="add-song-to-playlist-popup">Add Song To Playlist</div>
+          <i className="material-icons" data-tip data-for="playlist">playlist_add</i>
+          <ReactTooltip id="playlist" place="bottom">
+            <span>Add Song To Playlist</span>
+          </ReactTooltip>
        </div>
       );
     }
@@ -210,8 +213,13 @@ class Albums extends React.Component {
           <div className="buttons-on-songs">
             {this.renderPlayPauseButton(song)}
             {this.renderAddToPlaylist(song.id)}
-            <div className="add-song-que"><i className="material-icons" onClick={this.addSongToQue(song)}>queue_music</i></div>
-            <div className="add-song-to-que">Add Song To Queue</div>
+
+            <div className="add-song-que"><i className="material-icons" onClick={this.addSongToQue(song)} data-tip data-for="queue1">queue_music</i>
+              <ReactTooltip id="queue1" class="queue1" place="bottom">
+                <span>Add Song To Queue</span>
+              </ReactTooltip>
+            </div>
+
           </div>
         </li>)
     }

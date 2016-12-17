@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactPlayer from 'react-player';
 import { withRouter } from 'react-router';
+import ReactTooltip from 'react-tooltip';
 
 
 class AudioPlayer extends React.Component{
@@ -9,7 +10,6 @@ class AudioPlayer extends React.Component{
     this.currentSong = ''
     this.state = {
       currentSong: '',
-      player: '',
       playing:false,
       paused:false,
       progress: 0,
@@ -31,6 +31,14 @@ class AudioPlayer extends React.Component{
     this.playSong = this.playSong.bind(this);
     this.seekToBeginning = this.seekToBeginning.bind(this);
     this.seekToPosition = this.seekToPosition.bind(this);
+  }
+
+  componentDidMount(){
+    $(window).keypress((e)=>{
+      if(e.which === 32){
+        this.togglePlayPauseAction()
+      }
+    });
   }
 
   componentWillReceiveProps(nextProps){
@@ -140,9 +148,9 @@ playNextSongInQue(){
 
 queList(){
   if(this.state.que.length > 0){
-    return this.state.que.map((song,i) => <li key={`que-${i}`}>{song.title}</li>)
+    return this.state.que.map((song,i) => <li key={`que-${i}`}>{`${song.title} - ${song.artist}`}</li>)
   }else{
-    return(<p>Add Songs To Queue</p>)
+    return(<p>No Songs In Your Queue</p>)
   }
 }
 
@@ -200,13 +208,16 @@ render(){
         <i className="material-icons" onClick={this.toggleLoop} style={this.toggleLoopColor()}>loop</i>
       </div>
 
-      <div className="audio-que" onClick={this.toggleQueStyle}>
+      <div className="audio-que" onClick={this.toggleQueStyle} data-tip data-for="queue">
         <p>{this.state.que.length}</p>
-        <div className="que-list" style={this.state.queStyle}>
+      </div>
+
+      <ReactTooltip id='queue' aria-haspopup='true' effect="solid" delayHide={500}>
+        <div className="que-list">
           <h3>Your Queue:</h3>
           {this.queList()}
         </div>
-      </div>
+      </ReactTooltip>
 
 
     </div>

@@ -106,26 +106,19 @@
 }
 
 .que-list{
-  display: none;
-  list-style: circle;
-  position: absolute;
-  background: white;
+  list-style: inherit;
   min-width: 15vw;
   min-height: 20vh;
-  max-height: 20vh;
-  top: -22.5vh;
-  left: -14.2vw;
-  border: 1px solid black;
-  border-radius: 5px;
-  color: black;
+  color: white;
   font-family: 'Montserrat', sans-serif;
   text-align: left;
   padding: 5px;
-  overflow: scroll;
 }
 
 .que-list > h3 {
   text-align: center;
-  border-bottom: 1px solid black;
+  border: 1px solid white;
+  border-radius: 2px;
+  padding: 5px;
   margin-bottom: 5px;
 }

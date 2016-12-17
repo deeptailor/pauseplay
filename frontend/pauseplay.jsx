@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
-import Root from './components/root'
+import Root from './components/root';
 
 import { signup, login, logout } from './actions/session_actions'
-import { fetchPlaylists, fetchPlaylist, fetchFollowedPlaylists, fetchOwnedPlaylists, createPlaylist, addSongToPlaylist, followPlaylistRequest, receivePlaylistFollowSuccess } from './actions/playlist_actions'
-
+import { fetchPlaylists, fetchPlaylist, fetchFollowedPlaylists, fetchOwnedPlaylists, createPlaylist, addSongToPlaylist, followPlaylistRequest, receivePlaylistFollowSuccess } from './actions/playlist_actions';
 
 
 
@@ -50,4 +49,5 @@ document.addEventListener('DOMContentLoaded', () => {
       $('.audio-bar-container').css({position:'fixed'});
     }
   })
+
 });
