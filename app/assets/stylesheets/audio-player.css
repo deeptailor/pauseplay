@@ -37,10 +37,15 @@
 
 
 .progress-bar{
-  width: 30%;
-  height: 2px;
+  width: 50%;
+  height: 10px;
   background-color: white;
   position: relative;
+  border-radius: 2px;
+}
+
+.progress-bar:hover{
+  cursor: pointer;
 }
 
 .progress-bar-color{
@@ -49,12 +54,14 @@
   z-index: 2;
   position: absolute;
   left:0;
+  border-radius: 2px;
 }
 
 .loaded-bar-color{
   background-color: grey;
   height: 100%;
   z-index: 1;
+  border-radius: 2px;
 }
 
 .audio-controls{
@@ -66,7 +73,7 @@
 
 .audio-bar-song-name{
   color: white;
-  min-width: 50%;
+  min-width: 40%;
   max-width: 50%;
   font-family: 'Montserrat', sans-serif;
   font-size: 12px;

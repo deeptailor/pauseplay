@@ -9,6 +9,7 @@ class AudioPlayer extends React.Component{
     this.currentSong = ''
     this.state = {
       currentSong: '',
+      player: '',
       playing:false,
       paused:false,
       progress: 0,
@@ -24,10 +25,12 @@ class AudioPlayer extends React.Component{
     this.togglePlayPauseButton = this.togglePlayPauseButton.bind(this);
     this.toggleLoop = this.toggleLoop.bind(this);
     this.playNextSongInQue = this.playNextSongInQue.bind(this);
-    this.queList = this.queList.bind(this)
-    this.toggleQueStyle = this.toggleQueStyle.bind(this)
-    this.routerPush = this.routerPush.bind(this)
-    this.playSong = this.playSong.bind(this)
+    this.queList = this.queList.bind(this);
+    this.toggleQueStyle = this.toggleQueStyle.bind(this);
+    this.routerPush = this.routerPush.bind(this);
+    this.playSong = this.playSong.bind(this);
+    this.seekToBeginning = this.seekToBeginning.bind(this);
+    this.seekToPosition = this.seekToPosition.bind(this);
   }
 
   componentWillReceiveProps(nextProps){
@@ -121,13 +124,17 @@ toggleLoopColor(){
 }
 
 playNextSongInQue(){
-  if(this.props.que.length > 0){
-    this.props.addToCurrentSongFromQue();
-    this.setState({queLength: this.state.que.slice(1), progress: 0, playing: true, paused: false})
-  }
-  else{
-    this.props.pauseSong();
-    this.setState({que: [], queLength: 0, playing: false, progress: 0, currentSong: ''})
+  if(this.state.loop){
+    this.player.seekTo(0);
+  }else{
+    if(this.props.que.length > 0){
+      this.props.addToCurrentSongFromQue();
+      this.setState({queLength: this.state.que.slice(1), progress: 0, playing: true, paused: false})
+    }
+    else{
+      this.props.pauseSong();
+      this.setState({que: [], queLength: 0, playing: false, progress: 0, currentSong: ''})
+    }
   }
 }
 
@@ -135,7 +142,7 @@ queList(){
   if(this.state.que.length > 0){
     return this.state.que.map((song,i) => <li key={`que-${i}`}>{song.title}</li>)
   }else{
-    return(<p>Add Songs To Que</p>)
+    return(<p>Add Songs To Queue</p>)
   }
 }
 
@@ -151,12 +158,20 @@ routerPush(location){
   return () => this.props.router.push(location);
 }
 
+seekToBeginning(e){
+  this.player.seekTo(0);
+}
+
+seekToPosition(e){
+  this.player.seekTo(e.nativeEvent.offsetX/$('.progress-bar').width());
+}
 
 
 render(){
   return (
     <div className="audio-bar-container" id="audiobar" style={this.showPlayer()}>
       <ReactPlayer
+        ref={player => this.player = player}
         playing={this.state.playing && !this.state.paused}
         loop={this.state.loop}
         url={this.state.currentSong}
@@ -166,12 +181,12 @@ render(){
         />
 
       <div className="audio-controls">
-        <div className="rewind-audio-control"><i className="material-icons">skip_previous</i></div>
+        <div className="rewind-audio-control"><i className="material-icons" onClick={this.seekToBeginning}>skip_previous</i></div>
         <div className="play-pause-audio-control">{this.togglePlayPauseButton()}</div>
         <div className="forward-audio-control"><i className="material-icons" onClick={this.playNextSongInQue}>skip_next</i></div>
       </div>
 
-      <div className="progress-bar">
+      <div className="progress-bar" onClick={this.seekToPosition}>
           <div className="progress-bar-color" style={{width:`${this.state.progress}%`}}/>
           <div className="loaded-bar-color" style={{width:`${this.state.loaded}%`}}/>
       </div>
@@ -188,7 +203,7 @@ render(){
       <div className="audio-que" onClick={this.toggleQueStyle}>
         <p>{this.state.que.length}</p>
         <div className="que-list" style={this.state.queStyle}>
-          <h3>Your Que:</h3>
+          <h3>Your Queue:</h3>
           {this.queList()}
         </div>
       </div>

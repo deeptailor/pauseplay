@@ -53,4 +53,5 @@
  .material-icons:hover{
    cursor:pointer;
    color: #3cff00;
+   transform: scale(1.2);
  }
