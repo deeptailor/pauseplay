@@ -35,8 +35,11 @@ class AudioPlayer extends React.Component{
 
   componentDidMount(){
     $(window).keypress((e)=>{
-      if(e.which === 32){
-        this.togglePlayPauseAction()
+      if(e.which === 32 && e.target.tagName === 'BODY'){
+        e.preventDefault();
+        if(this.state.currentSong){
+          this.togglePlayPauseAction()
+        }
       }
     });
   }
